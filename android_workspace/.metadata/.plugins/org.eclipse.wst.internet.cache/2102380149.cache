@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://inter.webservice.environmentalweb.com/" name="MyWebServiceInter" targetNamespace="http://inter.webservice.environmentalweb.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://inter.webservice.environmentalweb.com/" elementFormDefault="unqualified" targetNamespace="http://inter.webservice.environmentalweb.com/" version="1.0">
+
+  <xs:element name="hello" type="tns:hello"/>
+
+  <xs:element name="helloResponse" type="tns:helloResponse"/>
+
+  <xs:element name="sendData" type="tns:sendData"/>
+
+  <xs:element name="sendDataResponse" type="tns:sendDataResponse"/>
+
+  <xs:complexType name="sendData">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="arg0" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendDataResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="hello">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="helloResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="hello">
+    <wsdl:part element="ns1:hello" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="helloResponse">
+    <wsdl:part element="ns1:helloResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendData">
+    <wsdl:part element="ns1:sendData" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendDataResponse">
+    <wsdl:part element="ns1:sendDataResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MyWebServiceInter">
+    <wsdl:operation name="sendData">
+      <wsdl:input message="ns1:sendData" name="sendData">
+    </wsdl:input>
+      <wsdl:output message="ns1:sendDataResponse" name="sendDataResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hello">
+      <wsdl:input message="ns1:hello" name="hello">
+    </wsdl:input>
+      <wsdl:output message="ns1:helloResponse" name="helloResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

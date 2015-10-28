@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - chat@localhost" uuid="0579ce4e-4aa4-4311-adb3-58afb77c8437">
+    <database-info product="MySQL" version="5.6.26-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="chat"/>
+    <table name="v_group" schema="" catalog="chat" type="TABLE">
+      <column name="id" sqlType="VARCHAR" precision="36" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_jack735d00qqbubn1wnhfmmwc" table="v_user_group" schema="" catalog="chat" columns="group_id"/>
+    </table>
+    <table name="v_user" schema="" catalog="chat" type="TABLE">
+      <column name="id" sqlType="VARCHAR" precision="36" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nickname" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_s6rja45decml8cv6bmkq40lff" table="v_user_group" schema="" catalog="chat" columns="user_id"/>
+    </table>
+    <table name="v_user_group" schema="" catalog="chat" type="TABLE">
+      <column name="user_id" sqlType="VARCHAR" precision="36" scale="0" nullable="false" jdbcType="12"/>
+      <column name="group_id" sqlType="VARCHAR" precision="36" scale="0" nullable="false" jdbcType="12"/>
+      <foreign-key name="FK_jack735d00qqbubn1wnhfmmwc" columns="group_id" ref-table="v_group" ref-schema="" ref-catalog="chat" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_s6rja45decml8cv6bmkq40lff" columns="user_id" ref-table="v_user" ref-schema="" ref-catalog="chat" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_jack735d00qqbubn1wnhfmmwc" unique="false" columns="group_id"/>
+      <index name="FK_s6rja45decml8cv6bmkq40lff" unique="false" columns="user_id"/>
+    </table>
+  </data-source>
+</component>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.example.webservice.inter.MyWebService&apos; to &apos;MyWebServiceInter&apos;&#x0D;&#x0A;- Original project: &apos;WebServiceServer&apos;&#x0D;&#x0A;- Original element: &apos;com.example.webservice.inter.MyWebService&apos;&#x0D;&#x0A;- Renamed element: &apos;com.example.webservice.inter.MyWebServiceInter&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;MyWebService&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.example.webservice.inter{MyWebService.java[MyWebService" matchStrategy="1" name="MyWebServiceInter" qualified="false" references="true" similarDeclarations="false" stamp="1435388946522" textual="false" version="1.0"/>
+</session>

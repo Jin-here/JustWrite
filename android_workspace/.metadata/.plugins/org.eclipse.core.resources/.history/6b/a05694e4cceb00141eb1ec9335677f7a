@@ -1,0 +1,39 @@
+package com.example.activity;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.example.testandroid50.R;
+
+public class ShowActivity extends Activity {
+	private TextView nameshow;
+	private TextView pswshow;
+	private Button finish;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.show);
+		
+		nameshow = (TextView) findViewById(R.id.nameshow);
+		pswshow = (TextView) findViewById(R.id.pswshow);
+		finish = (Button) findViewById(R.id.finish);
+		
+		Bundle bundle = getIntent().getExtras();
+		nameshow.setText(bundle.getString("name"));
+		pswshow.setText(bundle.getString("psw"));
+		
+		finish.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
+	}
+}

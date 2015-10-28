@@ -1,0 +1,1 @@
+document.writeln("<iframe name=\'head\' id=\'head\' width=\"1000\" height=174 frameborder=0 src='headudb0.html?domain=index' marginwidth=0 marginheight=0 scrolling=no vspace=0><\/iframe>");

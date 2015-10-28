@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="first_title">35sp</dimen>
+    <dimen name="second_title">28sp</dimen>
+    <dimen name="third_title">17sp</dimen>
+    <dimen name="forth_title">14sp</dimen>
+    
+    <dimen name="title_fragment_height">40dip</dimen>
+    <dimen name="title_fragment_padding">25dip</dimen>
+    <dimen name="title_padding_left">21dip</dimen>
+    <dimen name="title_fargment_space_width">25dip</dimen>
+    <dimen name="title_fargment_margin_top">25dip</dimen>
+    <dimen name="linespace">7sp</dimen>
+    <dimen name="divider">1dip</dimen>
+    
+    <dimen name="list_item_height">35dip</dimen>
+    <dimen name="list_item_filename">230dip</dimen>
+    <dimen name="list_item_time">100dip</dimen>
+    <dimen name="border_width">1dip</dimen>
+    
+    <dimen name="jumper_height">50dip</dimen>
+</resources>

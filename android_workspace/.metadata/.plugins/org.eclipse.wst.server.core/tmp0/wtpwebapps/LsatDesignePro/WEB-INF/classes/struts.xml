@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- <constant name="struts.custom.i18n.resources" value="message"/> -->
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.ui.theme" value="simple" />
+	<package name="default" namespace="/" extends="struts-default">
+	<action name="addinuser" class="com.action.AddinUserAction" method="save">
+			<result name="detail">index.jsp</result> </action> 
+	
+	<action name="loginjuge" class="com.action.LoginAction" method="login">
+			<result name="success" type="redirect">ChinaVnetindex.jsp</result>
+			<result name="error">LoginIndex.jsp</result>
+	             </action>
+	<action name="selectcon" class="com.action.AddinUserAction" method="selectCon">
+			<result name="selectok">/contract_files/getUserPackageBYID.jsp</result> </action>
+	
+	<action name="selectord" class="com.action.AddinUserAction" method="selectOrd">
+			<result name="selectook">/query_files/showUserDingGou.jsp</result> </action> 
+	
+	<action name="selectuser" class="com.action.AddinUserAction" method="selectUser">
+			<result name="selectuok">/update_files/myAccountModityShow.jsp</result> </action> 
+	
+	<action name="updateuser" class="com.action.AddinUserAction" method="updateUser">
+			<result name="updateuok">/update_files/myAccountModityShow.jsp </result> </action>
+    
+    <action name="updatepass" class="com.action.AddinUserAction" method="updatePass">
+			<result name="updatepok">/update_files/mypassword.jsp </result> </action> 
+	
+	<action name="updateMM" class="com.action.AddinUserAction" method="junge">
+  		  <result name="success" type="stream">
+	             <param name="contentType">text/html</param>
+	             <param name="inputName">result</param></result></action>
+	
+	<action name="deleteord" class="com.action.AddinUserAction" method="deleteOrd">
+			<result name="deleteook">/query_files/showUserDingGou.jsp </result> </action> 
+		
+	<action name="adminloginjuge" class="com.action.ManageAction" method="adminlogin">
+			<result name="success" type="redirect">AdminFiles/admin_query.jsp</result>
+			<result name="error">admin_login.jsp</result>
+	             </action>
+	             
+	<action name="selalluser" class="com.action.ManageAction" method="selAllUser">
+			<result name="success">/AdminFiles/admin_query_files/searchUser.jsp </result> </action> 
+		
+	<action name="selallord" class="com.action.ManageAction" method="selAllOrd">
+			<result name="success">/AdminFiles/admin_query_files/searchOrd.jsp </result> </action> 
+	
+	<action name="selallcon" class="com.action.ManageAction" method="selAllCon">
+			<result name="success">/AdminFiles/admin_query_files/searchCon.jsp </result> </action> 
+	
+	<action name="selallucon" class="com.action.ManageAction" method="selAllUCon">
+			<result name="success">/AdminFiles/admin_query_files/searchUCon.jsp </result> </action> 
+	
+	<action name="xiugaiuser" class="com.action.ManageAction" method="upUser">
+			<result name="success">/AdminFiles/admin_update_files/xiugaiUser.jsp </result>  
+			<result name="error">/AdminFiles/admin_update_files/xiugaiUser.jsp</result></action>
+	
+	<action name="xiugaiusersec" class="com.action.ManageAction" method="upUsersec">
+			<result name="success">/AdminFiles/admin_update_files/xiugaiUser.jsp </result>  </action>
+	
+	<action name="xiugaicon" class="com.action.ManageAction" method="upCon">
+			<result name="success">/AdminFiles/admin_update_files/xiugaiCon.jsp </result>  </action>
+	
+	<action name="selallconsec" class="com.action.ManageAction" method="selAllCon">
+			<result name="success">/AdminFiles/admin_update_files/xiugaiCon.jsp </result> </action> 
+	
+	<action name="xiugaiconsec" class="com.action.ManageAction" method="upConsec">
+			<result name="success">/AdminFiles/admin_update_files/xiugaiCon.jsp </result>  </action>
+	
+	<action name="tianjiaufir" class="com.action.ManageAction" method="selAllCon">
+			<result name="success">/AdminFiles/admin_add_files/tianjiaUser.jsp </result>  </action>
+	
+	<action name="tianjiausec" class="com.action.ManageAction" method="addUserOrd">
+			<result name="success">/AdminFiles/admin_add_files/tianjiaUser.jsp </result>  </action>
+	
+	<action name="tianjiacon" class="com.action.ManageAction" method="addCon">
+			<result name="success">/AdminFiles/admin_add_files/tianjiaCon.jsp </result>  </action>
+	
+	<action name="xiugaiusercon" class="com.action.ManageAction" method="upUserCon">
+			<result name="success">/AdminFiles/admin_update_files/xiugaiUCon.jsp </result>  
+			<result name="error">/AdminFiles/admin_update_files/xiugaiUCon.jsp</result></action>
+	
+	<action name="zhongzhiusercon" class="com.action.ManageAction" method="shutdownUCon">
+			<result name="success">/AdminFiles/admin_update_files/xiugaiUCon.jsp </result>  </action>
+	
+	<action name="xiugaiuserconsec" class="com.action.ManageAction" method="addUConsec">
+			<result name="success">/AdminFiles/admin_update_files/xiugaiUCon.jsp </result>  
+			<result name="error">/AdminFiles/admin_update_files/xiugaiUCon.jsp</result></action>
+	
+	<action name="selallcondelete" class="com.action.ManageAction" method="selAllCon">
+			<result name="success">/AdminFiles/admin_delete_files/shanchuCon.jsp </result> </action> 
+	
+	<action name="chaxuncon" class="com.action.ManageAction" method="chaxunCon">
+			<result name="success">/AdminFiles/admin_delete_files/shanchuCon.jsp </result>  </action>
+	
+	<action name="deletecon" class="com.action.ManageAction" method="shanchuCon">
+			<result name="success">/AdminFiles/admin_delete_files/shanchuCon.jsp </result>  </action>
+	
+	<action name="deletecon1" class="com.action.ManageAction" method="shanchuCon1">
+			<result name="success">/AdminFiles/admin_delete_files/shanchuCon.jsp </result>  </action>
+	
+	<action name="chaxunuser" class="com.action.ManageAction" method="upUser">
+			<result name="success">/AdminFiles/admin_delete_files/shanchuUser.jsp </result>  
+			<result name="error">/AdminFiles/admin_delete_files/shanchuUser.jsp</result></action>
+	
+	<action name="shanchuuser1" class="com.action.ManageAction" method="shanchuUser1">
+			<result name="success">/AdminFiles/admin_delete_files/shanchuUser.jsp </result>  
+			<result name="error">/AdminFiles/admin_delete_files/shanchuUser.jsp</result></action>
+	
+	<action name="shanchuuser" class="com.action.ManageAction" method="shanchuUser">
+			<result name="success">/AdminFiles/admin_delete_files/shanchuUser.jsp </result>  </action>
+	
+	</package>
+
+
+
+</struts>

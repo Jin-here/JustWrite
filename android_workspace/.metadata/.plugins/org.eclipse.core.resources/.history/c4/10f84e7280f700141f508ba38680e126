@@ -1,0 +1,67 @@
+package com.example.activity;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.PagerAdapter;
+import android.view.View;
+import android.view.ViewGroup;
+
+public class MyPageAdapter extends PagerAdapter {
+
+	private String[] tags = new String[]{"FRAGMENT00","FRAGMENT01","FRAGMENT02","FRAGMENT03"};
+	FragmentManager fm;
+	public MyPageAdapter(FragmentManager fm) {
+		// TODO Auto-generated constructor stub
+		this.fm = fm;
+	}
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return MainActivity.PAGE_NUM;
+	}
+
+	@Override
+	public boolean isViewFromObject(View arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		System.out.println(arg0.getId() + "arg0");
+		return true;
+	}
+
+	@Override
+	public Object instantiateItem(ViewGroup container, int position) {
+		// TODO Auto-generated method stub	
+		System.out.println(container.getId() + "container");
+		FragmentTransaction fT = fm.beginTransaction();
+		String tag = "FRAGMENT0" + position;
+		fT.add(container.getId(), MyFragment.newinstance(position), tag);
+		fT.commit();
+		return position;
+	}
+	
+	@Override
+	public void destroyItem(ViewGroup container, int position, Object object) {
+		// TODO Auto-generated method stub
+		System.out.println("destroyItem");
+		FragmentTransaction fT = fm.beginTransaction();		
+		Fragment fragment = fm.findFragmentByTag(tags[position]);
+		fT.detach(fragment);
+		fT.commit();
+		super.destroyItem(container, position, object);
+		
+	}
+	
+	@Override
+	public void startUpdate(ViewGroup container) {
+		// TODO Auto-generated method stub
+		super.startUpdate(container);
+		System.out.println("startupdate");
+	}
+	
+	@Override
+	public void finishUpdate(ViewGroup container) {
+		// TODO Auto-generated method stub
+		super.finishUpdate(container);
+		System.out.println("finishupdate");
+	}
+}

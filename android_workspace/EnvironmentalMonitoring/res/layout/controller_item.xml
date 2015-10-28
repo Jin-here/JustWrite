@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+    
+    <TextView
+        android:id="@+id/name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"        
+        android:textSize="@dimen/second_title"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+    
+    <TextView
+        android:id="@+id/status_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"        
+        android:textSize="@dimen/third_title"
+        android:textColor="@color/black"
+        android:text="@string/current_status_close" />    
+
+  	<ImageView
+  	    android:id="@+id/controller_icon"
+  	    android:layout_width="@dimen/machine_image_height"
+  	    android:layout_height="@dimen/machine_image_height"
+  	    android:layout_marginTop="@dimen/margin"
+  	    android:layout_marginBottom="@dimen/margin"
+  	    android:layout_gravity="center_horizontal"/>
+
+	<TextView
+        android:id="@+id/open_text_view"
+        android:layout_width="@dimen/machine_image_height"
+        android:layout_height="@dimen/button_height"
+        android:gravity="center_horizontal"
+        android:text="@string/open"
+        android:textColor="@color/white"
+        android:textSize="@dimen/third_title"
+        android:background="@drawable/btn_blue" />
+</LinearLayout>

@@ -1,0 +1,69 @@
+
+   
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>添加活动</title>
+
+		<link type="text/css" rel="stylesheet" href="public(1).css">
+
+		<link type="text/css" rel="stylesheet" href="style(1).css">
+		<body style="background:none">
+        	<div class="pe_r_img"><img src="pebg2.gif"></div>
+
+        	<div class="pe_r_t"><a href="tianjiaUser.jsp">添加用户</a>|<a href="tianjiaCon.jsp">添加套餐</a>|<a href="tianjiaHdong.htm">添加活动</a></div>
+       	<div class="pe_r_title">添加活动</div>
+        
+        	<div class="pe_r_text">
+    
+   	添加活动
+    </div>
+        
+        
+         <div class="pe_r_tab">
+<center><s:property value="#session.tips"/></center>
+<form name="f" id="f" method="post" action="updatepass">
+<table width="745" border="0">
+  <tbody><tr bgcolor="#E9E3D7">
+  <td width="353" height="37">
+    <div align="right" class="perco">活动标题：</div></td>
+  	<td width="350"><input type="text" id="op" name="oldpass" maxlength="40" style="width:320px;">
+    
+  </tr>
+  <tr>
+  <td width="353" height="37">
+    <div align="right" class="perco">图片上传：</div></td>
+  	<td width="350"><input type="file"  id="np" name="newpass" size="54" maxlength="40" style="width:340px;">
+    
+  </tr>
+  <tr bgcolor="#E9E3D7">
+  <td width="353" height="37">
+    <div align="right" class="perco">链接地址：</div></td>
+  	<td width="350"><input type="text" id="np1" name="newpass1"  maxlength="40" style="width:320px;">
+    
+  </tr>
+  <tr>
+  <td width="353" height="80">
+    <div align="right" class="perco">活动简介：</div></td>
+  	<td width="350"><textarea   id="np" name="newpass" cols="50" rows="5"></textarea>
+    
+  </tr>
+  <tr>
+  	<td colspan="3" align="center">
+    <div>
+  	<img name="Submit" style="cursor: hand" src="tianjia.gif" value="修改" onClick="checkform()">
+	<img name="Submit" style="cursor: hand" src="reset.gif" value="取消" onClick="reset()">
+  </div>
+  
+  </td>	
+  </tr>
+</tbody></table>
+</form>
+</div>
+        
+        
+        
+        
+        
+        
+</body></html>

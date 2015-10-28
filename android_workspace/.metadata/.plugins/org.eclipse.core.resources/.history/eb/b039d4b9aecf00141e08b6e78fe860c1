@@ -1,0 +1,16 @@
+package com.gaw.accountsoft.model;
+
+public class Tb_flag {
+	private int _id;
+	private String flag;
+	
+	public Tb_flag(){
+		super();
+	}
+	
+	public Tb_flag(int id,String flag){
+		super();
+		this._id = id;
+		this.flag = flag;
+	}
+}

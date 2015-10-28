@@ -1,0 +1,64 @@
+﻿/*img {
+	filter:gray;
+}
+html { filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); }*/
+body {
+	font-family: "宋体", Verdana;
+	font-size: 12px;
+	line-height: 150%;
+	color: #1A427F;
+	text-decoration: none;
+	margin:0px;
+	background-color: #ffffff;
+}
+.font_1A427F {
+	color: #1A427F;
+}
+
+.font_white {
+	color: #FFFFFF;
+}
+a {
+	text-decoration: none;
+}
+.font_fe4f00 {
+	color: #fe4f00;
+}
+.font_0089b5 {
+	color: #0089b5;
+}
+.font_f27500 {
+	color: #f27500;
+}
+.font_9f5d06 {
+	color: #9f5d06;
+}
+.font_333333 {
+	color: #555555;
+}
+.font_gray {
+	color: #555555;
+}
+.font_000099 {
+	color: #000099;
+}
+.v2_tab_1 {
+	background-image: url(../images/v2_tab_1.jpg);
+	float: left;
+	height: 18px;
+	width: 62px;
+	text-align:center;
+	padding-top:4px;
+	color:#fa5304;
+	font-weight:bold;
+}
+.v2_tab_0 {
+	background-image: url(../images/v2_tab_0.jpg);
+	float: left;
+	height: 18px;
+	width: 62px;
+	text-align:center;
+	padding-top:4px;
+	color:#ffffff;
+	font-weight:bold;
+}

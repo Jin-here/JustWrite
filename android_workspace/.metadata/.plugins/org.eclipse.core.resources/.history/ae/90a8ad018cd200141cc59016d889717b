@@ -1,0 +1,76 @@
+package com.example.dao;
+
+import java.io.ByteArrayOutputStream;
+import java.util.List;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap.CompressFormat;
+import android.graphics.drawable.BitmapDrawable;
+
+import com.example.db.DBHelper;
+import com.example.db.DBInfo;
+import com.example.pojo.User;
+
+public class UserDao {
+	private DBHelper dbHelper = null;
+	private SQLiteDatabase db = null;
+	
+	public UserDao(Context context){
+		dbHelper = new DBHelper(context);
+	}
+	/**
+	 * 新增用户
+	 * @param user
+	 * @return
+	 */
+	public long insertUser(User user){
+		db = dbHelper.getWritableDatabase();
+		ContentValues values = new ContentValues();//HashMap
+		values.put(DBInfo.Table.USER_ID, user.getUser_id());
+		values.put(DBInfo.Table.USER_NAME, user.getUser_name());
+		values.put(DBInfo.Table.TOKEN, user.getToken());
+		values.put(DBInfo.Table.TOKEN_SECRET, user.getToken_secret());
+		values.put(DBInfo.Table.DESCRIPTION, user.getDescription());		
+		
+		ByteArrayOutputStream os = new ByteArrayOutputStream();
+		BitmapDrawable newHead = (BitmapDrawable)user.getUser_head();
+		newHead.getBitmap().compress(CompressFormat.PNG, 100, os);
+		db.insert(DBInfo.Table.USER_TABLE, DBInfo.Table.USER_NAME, values);
+		
+		values.put(DBInfo.Table.USER_HEAD, os.toByteArray());
+		return 1;
+	}
+	/**
+	 * 更新用户
+	 * @param user
+	 * @return
+	 */
+	public int updateUser(User user){
+		return 1;
+	}
+	/**
+	 * 根据用户ID删除对应用户数据
+	 * @param user_id
+	 * @return
+	 */
+	public int deleteUser(String user_id){
+		return 1;
+	}
+	/**
+	 * 根据用户ID获得用户信息
+	 * @param user_id
+	 * @return
+	 */
+	public User findUserByUserId(String user_id){
+		return null;
+	}
+	/**
+	 * 获得所有用户数据
+	 * @return
+	 */
+	public List<User> findAllUsers(){
+		return null;
+	}
+}

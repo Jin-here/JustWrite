@@ -1,0 +1,23 @@
+package com.gaw.accountsoft.dao;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.gaw.accountsoft.model.Tb_inaccount;
+
+public class InaccountDAO {
+	private SQLiteDatabase db;
+	private DBOpenHelper helper;
+	
+	public InaccountDAO(Context context){
+		helper = new DBOpenHelper(context);
+	}
+	
+	public void add(Tb_inaccount tb_inaccount){
+		db = helper.getWritableDatabase();
+		//执行添加信息操作
+		db.execSQL("insert into tb_inaccount (_id,money,time,type,handler,mark) values (?,?,?,?,?,?)",
+				new Object[]{tb_inaccount.get_id(),tb_inaccount.getMoney(),tb_inaccount.getTime(),tb_inaccount.getType(),
+				tb_inaccount.getHandler()},tb_inaccount.getMark()});
+	}
+}

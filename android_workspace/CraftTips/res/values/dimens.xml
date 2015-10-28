@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <dimen name="context_between">7dip</dimen>
+    <dimen name="help_btn_margin_left">37dip</dimen>
+    <dimen name="picture_size">100dip</dimen>
+</resources>

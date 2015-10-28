@@ -1,0 +1,12 @@
+package com.environmentalweb.webservice.test;
+
+import com.environmentalweb.webservice.impl.MyWebServiceService;
+import com.environmentalweb.webservice.inter.MyWebServiceInter;
+
+public class Test {
+	public static void main(String[] args) {
+		MyWebServiceService ws = new MyWebServiceService();
+		MyWebServiceInter inter = ws.getMyWebServicePort();
+		System.out.println(inter.hello());
+	}
+}

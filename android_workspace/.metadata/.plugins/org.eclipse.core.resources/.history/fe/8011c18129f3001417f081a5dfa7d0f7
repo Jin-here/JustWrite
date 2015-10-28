@@ -1,0 +1,59 @@
+package com.example.activity;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.TextView;
+
+import com.example.testandroid63.R;
+
+public class MainActivity extends Activity {
+	private static final int PORT = 10000;
+	private TextView show;
+	private ServerSocket host;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
+		
+		show = (TextView) findViewById(R.id.show);
+		
+		try {
+			host = new ServerSocket(PORT);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		handle(host);
+	}
+	
+
+	private String readMsg(Server client) throws IOException{
+		
+		BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+		String msg = in.readLine();
+		return msg;
+	}
+	
+	private void sendMsg(Socket client,String msg){
+		
+	}
+	
+	private void handle(ServerSocket host) {
+		// TODO Auto-generated method stub
+		while (!host.isClosed()){
+			Socket client = host.accept();
+			sendMsg(client,readMsg(host));
+		}
+	}
+	
+	
+}

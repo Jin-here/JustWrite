@@ -1,0 +1,45 @@
+<TabHost
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:background="@drawable/app_bg"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="match_parent">
+        
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0"/>
+        
+        <TextView
+        	android:id="@+id/title_text_view"
+        	android:layout_width="match_parent"
+        	android:layout_height="@dimen/tabhost_title_height"
+        	android:textSize = "@dimen/first_title"
+        	android:textStyle="bold"
+        	android:textColor="@color/tabhost_title_text_color"
+        	android:layout_weight="0"
+        	android:gravity="center_horizontal"
+        	android:background="@drawable/tabhost_title_bg" />
+        
+        <FrameLayout
+            android:id="@+id/realTabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/> 
+            
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tabStripEnabled="false"            
+            android:layout_weight="0"/>
+            
+    </LinearLayout>
+</TabHost>

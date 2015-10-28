@@ -1,0 +1,57 @@
+package com.example.activity;
+
+import android.app.Activity;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Bundle;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.example.avrilweibo.R;
+
+
+public class LoadActivity extends Activity {
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.load);
+		
+		ImageView loadImage = (ImageView)findViewById(R.id.loadImageView);
+		//透明度界面动画(取值从0.1~1.0)
+		AlphaAnimation animation = new AlphaAnimation(0.0f,1.0f);
+		//是指动画持续时间
+		animation.setDuration(500);
+		loadImage.setAnimation(animation);
+		
+		animation.setAnimationListener(new AnimationListener() {
+			//动画启动的时候执行
+			@Override
+			public void onAnimationStart(Animation arg0) {
+				// TODO Auto-generated method stub
+				//获得网络状态管理器
+				Tools.isNetworkAvailable();
+			}
+			//动画重复执行的时候执行
+			@Override
+			public void onAnimationRepeat(Animation arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			//动画结束的时候执行
+			@Override
+			public void onAnimationEnd(Animation arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		
+	}
+	
+	
+}

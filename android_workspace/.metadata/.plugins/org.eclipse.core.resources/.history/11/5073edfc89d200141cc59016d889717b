@@ -1,0 +1,13 @@
+package com.example.pojo;
+
+import android.graphics.drawable.Drawable;
+
+public class User {
+	private Long id;
+	private String user_id;
+	private String user_name;
+	private String token;
+	private String token_secret;
+	private String description;
+	private Drawable user_head;
+}

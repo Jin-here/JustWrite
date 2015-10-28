@@ -1,0 +1,49 @@
+package com.example.activity;
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+
+import com.example.testandroid51.R;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
+
+public class MainActivity extends Activity {
+	
+	private int[] image_id = new int[]{R.id.image11,R.id.image12,R.id.image13,R.id.image14,
+			R.id.image21,R.id.image22,R.id.image23,R.id.image24,
+			R.id.image31,};
+	private String[] image_uri = new String[]{"http://image.haosou.com/v?src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Fnews.cnhubei.com%2Fxw%2Fyl%2F201307%2Ft2628084.shtml#src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Fnews.cnhubei.com%2Fxw%2Fyl%2F201307%2Ft2628084.shtml&lightboxindex=1&id=f62d63b752b0515fa5fe43ce07657506&multiple=0&itemindex=0&dataindex=1",
+		"http://image.haosou.com/v?src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Flive.kankanews.com%2Fcehua%2F2013-02-01%2F2325989_13.shtml#src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Flive.kankanews.com%2Fcehua%2F2013-02-01%2F2325989_13.shtml&lightboxindex=3&id=37029b18480213a0f760f02d0fdbf169&multiple=0&itemindex=0&dataindex=4",
+		"http://image.haosou.com/v?src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Fwww.xiawu.com%2Ftagss%2Ffx%25D6%25A3%25D0%25E3%25BE%25A7%25CD%25AC%25BF%25EE%25D2%25C2#src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Fwww.xiawu.com%2Ftagss%2Ffx%25D6%25A3%25D0%25E3%25BE%25A7%25CD%25AC%25BF%25EE%25D2%25C2&lightboxindex=4&id=08f6d333048ee51e23af57bfe4de1474&multiple=0&itemindex=0&dataindex=6",
+		"http://image.haosou.com/v?src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Ftweets.seraph.me%2Fsearch%2F%25E9%2583%2591%25E7%25A7%2580%25E6%2599%25B6%25E7%259A%2584%25E5%25B0%258F%25E8%2588%258C%25E5%25A4%25B4#src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Ftweets.seraph.me%2Fsearch%2F%25E9%2583%2591%25E7%25A7%2580%25E6%2599%25B6%25E7%259A%2584%25E5%25B0%258F%25E8%2588%258C%25E5%25A4%25B4&lightboxindex=9&id=7b6a7e67d25a790ad6b33f51931d3615&multiple=0&itemindex=0&dataindex=17",
+		"http://image.haosou.com/v?src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Ftweets.seraph.me%2Fsearch%2F%25E9%2583%2591%25E7%25A7%2580%25E6%2599%25B6%25E7%259A%2584%25E5%25B0%258F%25E8%2588%258C%25E5%25A4%25B4#src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Ftweets.seraph.me%2Fsearch%2F%25E9%2583%2591%25E7%25A7%2580%25E6%2599%25B6%25E7%259A%2584%25E5%25B0%258F%25E8%2588%258C%25E5%25A4%25B4&lightboxindex=10&id=1f1521162cb9579ce27e09397d502b7f&multiple=0&itemindex=0&dataindex=18",
+		"http://image.haosou.com/v?src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Ftweets.seraph.me%2Fsearch%2F%25E9%2583%2591%25E7%25A7%2580%25E6%2599%25B6%25E7%259A%2584%25E5%25B0%258F%25E8%2588%258C%25E5%25A4%25B4#src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Ftweets.seraph.me%2Fsearch%2F%25E9%2583%2591%25E7%25A7%2580%25E6%2599%25B6%25E7%259A%2584%25E5%25B0%258F%25E8%2588%258C%25E5%25A4%25B4&lightboxindex=16&id=efbb1015f2d676624ac8058e8ecb4f25&multiple=0&itemindex=0&dataindex=24",
+		"http://image.haosou.com/v?src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Ftweets.seraph.me%2Fsearch%2F%25E9%2583%2591%25E7%25A7%2580%25E6%2599%25B6%25E7%259A%2584%25E5%25B0%258F%25E8%2588%258C%25E5%25A4%25B4#src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Ftweets.seraph.me%2Fsearch%2F%25E9%2583%2591%25E7%25A7%2580%25E6%2599%25B6%25E7%259A%2584%25E5%25B0%258F%25E8%2588%258C%25E5%25A4%25B4&lightboxindex=18&id=cdcf747b644d34fe84d8dac3439ad77a&multiple=0&itemindex=0&dataindex=27",
+		"http://image.haosou.com/v?src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Ftweets.seraph.me%2Fsearch%2F%25E9%2583%2591%25E7%25A7%2580%25E6%2599%25B6%25E7%259A%2584%25E5%25B0%258F%25E8%2588%258C%25E5%25A4%25B4#src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Ftweets.seraph.me%2Fsearch%2F%25E9%2583%2591%25E7%25A7%2580%25E6%2599%25B6%25E7%259A%2584%25E5%25B0%258F%25E8%2588%258C%25E5%25A4%25B4&lightboxindex=24&id=bc0e9d03e20987f37be96edcf209249d&multiple=0&itemindex=0&dataindex=33",
+		"http://image.haosou.com/v?src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Ftweets.seraph.me%2Fsearch%2F%25E9%2583%2591%25E7%25A7%2580%25E6%2599%25B6%25E7%259A%2584%25E5%25B0%258F%25E8%2588%258C%25E5%25A4%25B4#src=360chrome_newtab_search&ie=utf-8&q=%E9%83%91%E7%A7%80%E6%99%B6&fromurl=http%3A%2F%2Ftweets.seraph.me%2Fsearch%2F%25E9%2583%2591%25E7%25A7%2580%25E6%2599%25B6%25E7%259A%2584%25E5%25B0%258F%25E8%2588%258C%25E5%25A4%25B4&lightboxindex=26&id=85cf321c332ed604e3fdc816e5363ec4&multiple=0&itemindex=0&dataindex=35"};
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
+		
+		
+		
+		ImageLoaderConfiguration configuration = ImageLoaderConfiguration
+				.createDefault(this);
+		ImageLoader.getInstance().init(configuration);
+		
+		for (int i = 0;i < image_id.length;i++){
+			ImageLoader.getInstance().displayImage(uri, (ImageView)findViewById(image_id[i]));
+		}
+		
+			
+	}
+}

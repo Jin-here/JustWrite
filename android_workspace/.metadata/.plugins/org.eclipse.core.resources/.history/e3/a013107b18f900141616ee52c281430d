@@ -1,0 +1,130 @@
+package com.environmentalmonitoring.fragment;
+
+import java.util.ArrayList;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.environmentalmonitoring.activity.MainActivity;
+import com.environmentalmonitoring.activity.R;
+import com.environmentalmonitoring.bean.MachineStatus;
+import com.environmentalmonitoring.db.MySharedPreferences;
+
+public class Tab02Fragment extends Fragment {
+	public static final String TAG = "TAB02FRAGMENT";
+	
+	private MachineStatus status;
+	ArrayList<ControllerUiData> data;
+	MainActivity mainActivity;
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		
+		mainActivity = (MainActivity)getActivity();
+		MySharedPreferences mApp = (MySharedPreferences)mainActivity.getApplication();
+		status = mApp.getStatus();
+		
+		data = new ArrayList<Tab02Fragment.ControllerUiData>();
+		data.add(new ControllerUiData(status.getStatus(0),R.string.blower, R.drawable.blower_on, R.drawable.blower_off));
+		data.add(new ControllerUiData(status.getStatus(1),R.string.road_lamp, R.drawable.roadlamp_on, R.drawable.roadlamp_off));
+		data.add(new ControllerUiData(status.getStatus(2),R.string.water_pump, R.drawable.water_pump_on, R.drawable.water_pump_off));
+		data.add(new ControllerUiData(status.getStatus(3),R.string.buzzer, R.drawable.buzzer_on, R.drawable.buzzer_off));
+		
+	}
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		View layout = inflater.inflate(R.layout.tab02_fragment, container,false);
+		GridView gV = (GridView) layout.findViewById(R.id.controller_grid_view);
+		gV.setAdapter(new MyAdapter(mainActivity.getBaseContext(), R.layout.tab02_fragment, data));
+		return layout;
+	}
+	
+	private class ControllerUiData{	
+		public ControllerUiData(boolean status,int name, int onIcon, int offIcon) {
+			super();
+			this.status = status;
+			this.name = name;
+			this.onIcon = onIcon;
+			this.offIcon = offIcon;
+		}
+		public boolean status;
+		public int name;		
+		public int onIcon;
+		public int offIcon;
+	}
+	
+	
+	private class MyAdapter extends ArrayAdapter<ControllerUiData>{
+		
+		private ArrayList<ControllerUiData> data;
+		public MyAdapter(Context context, int resource,
+				ArrayList<ControllerUiData> objects) {
+			super(context, resource, objects);
+			// TODO Auto-generated constructor stub
+			
+			this.data = objects;
+		}
+		
+		@Override
+		public View getView(final int position, View convertView, ViewGroup parent) {
+			// TODO Auto-generated method stub
+			System.out.println("1");
+			TextView name_text_view = (TextView) convertView.findViewById(R.id.name_text_view);
+			System.out.println("1");
+			final TextView status_text_view = (TextView) convertView.findViewById(R.id.status_text_view);
+			System.out.println("1");
+			final ImageView controller_icon = (ImageView) convertView.findViewById(R.id.controller_icon);
+			System.out.println("1");
+			final TextView open_text_view = (TextView) convertView.findViewById(R.id.open_text_view);
+			System.out.println("1");
+			
+			
+			/**************初始化machine状态**************************/
+			name_text_view.setText(data.get(position).name);
+			if (status.getStatus(position)){
+				status_text_view.setText(getString(R.string.current_status_open));
+				controller_icon.setImageResource(data.get(position).onIcon);
+				open_text_view.setText(getString(R.string.close));
+			}
+			/**************初始化machine状态**************************/
+			
+			open_text_view.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					boolean flagtemp = data.get(position).status;
+					if (!flagtemp){
+						status_text_view.setText(getString(R.string.current_status_open));
+						controller_icon.setImageResource(data.get(position).onIcon);
+						open_text_view.setText(getString(R.string.close));
+					}else{
+						status_text_view.setText(getString(R.string.current_status_close));
+						controller_icon.setImageResource(data.get(position).offIcon);
+						open_text_view.setText(getString(R.string.open));
+					}
+				}
+			});
+			
+			return convertView;
+		}
+
+		
+		
+	}
+	
+	
+}

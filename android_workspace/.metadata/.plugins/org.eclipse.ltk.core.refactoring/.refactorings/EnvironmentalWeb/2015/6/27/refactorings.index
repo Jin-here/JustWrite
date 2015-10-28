@@ -1,0 +1,19 @@
+1435540613915	Rename package 'com.environmentalweb.webservice.impl'
+1435540638673	Rename type 'MyWebService'
+1435540726888	Rename package 'com.environmentalweb.webservice.impl'
+1435540740273	Rename package 'com.environmentalweb.webservice.impl1'
+1435540795719	Rename package 'com.environmentalweb.webservice.publish'
+1435540802071	Rename package 'com.environmentalweb.webservice.publish1'
+1435540945499	Copy package
+1435540973346	Rename package 'com.environmentalweb.dao.copy'
+1435541024218	Copy package
+1435541056082	Rename package 'com.environmentalweb.bean'
+1435541060637	Rename package 'com.environmentalweb.bean1'
+1435541078611	Rename compilation unit 'Sensor.java'
+1435541135820	Delete element
+1435543662902	Rename package 'com.environmentalweb.dao'
+1435544526643	Rename package 'com.environmentalweb.servlet'
+1435544531130	Rename package 'com.environmentalweb.servlet1'
+1435557013544	Copy packages
+1435557029481	Copy files
+1435557037202	Copy file

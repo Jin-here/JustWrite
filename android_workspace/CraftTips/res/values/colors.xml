@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <color name="main_background">#D0D0D0</color>
+    <color name="context_01">#000000</color>
+    <color name="context_02">#F75000</color>
+    <color name="context_03">#FF2D2D</color>
+</resources>

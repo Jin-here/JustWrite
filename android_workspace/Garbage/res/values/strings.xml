@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Garbage</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="no_right">右边→_→没有啦！</string>
+    <string name="no_left">左边☜没有啦！</string>
+</resources>

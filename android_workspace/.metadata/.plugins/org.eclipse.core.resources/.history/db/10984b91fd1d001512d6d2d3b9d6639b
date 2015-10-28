@@ -1,0 +1,5 @@
+package com.environmentalweb.bean1;
+
+public class Sensor {
+
+}

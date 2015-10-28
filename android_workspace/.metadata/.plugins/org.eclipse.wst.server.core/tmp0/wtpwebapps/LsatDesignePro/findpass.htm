@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0034)http://passport.189.cn/SelfS/Find/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+	重置/找回密码-天翼帐号
+</title>
+
+<meta name="Description" content="天翼帐号是中国电信为用户提供的业务统一登录帐号,使用天翼帐号可畅行中国电信提供的众多互联网服务。">
+<meta name="Keywords" content="中国电信天翼帐号,电信天翼帐号,CT通行证,UDB,ChinaTelecomPassport">
+<link rel="Shortcut Icon" href="http://passport.189.cn/SelfS/Skin/default/images/favicon.ico" type="image/x-icon">
+
+
+<link type="text/css" rel="stylesheet" href="./findpass_files/global.css">
+<link type="text/css" rel="stylesheet" href="./findpass_files/page.css">
+
+
+
+
+
+
+<script async="" src="./findpass_files/analytics.js"></script><script type="text/javascript" src="./findpass_files/jquery.min.js"></script>
+
+<script type="text/javascript" src="./findpass_files/util.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        $(function(){
+            objFindPassword.Init();
+        });
+    </script>
+
+</head>
+<body>
+    <form name="form1" method="post" action="http://passport.189.cn/SelfS/Find/default.aspx" id="form1">
+
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+function isMobil(s) {
+    //var patrn = /^[+]{0,1}(\d){1,3}[ ]?([-]?((\d)|[ ]){1,12})+$/;
+    var patrn = /^(13[0-9]{9})|(14[0-9])|(18[0-9])|(15[0-9][0-9]{8})$/;
+    if (!patrn.exec(s)) return false
+    else return true
+}
+
+function check(){
+	if(document.getElementById("txtUserID").value==""||document.getElementById("txtValidateCode").value=="")
+		return false
+	else
+		return true
+			
+}
+function checkfull(){
+	if(!check())
+		alert("账号或验证码不能为空！")
+		else
+			window.location.href("findpass2.htm")
+}
+//]]>
+</script>
+
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBAK8m+W7CQLT8dy8BQKuqciQCQK14fOOCn4phu94QBmZ/mrHCqYX9s6fa2pG">
+</div>
+        <div class="bodyall">
+            
+<div class="head">
+    <div class="logo" onclick="javascript:window.location.href=&#39;/&#39;" style="cursor: pointer"></div>
+    <div class="title">
+        
+        <h1 id="ucBodyHead_ucTitle">重置/找回密码</h1>
+        <div class="right">
+            <a href="http://passport.189.cn/SelfS/About/About.aspx" id="ucBodyHead_ucAbout" title="关于天翼帐号" target="_blank">关于天翼帐号</a> | <a href="http://passport.189.cn/SelfS/About/FAQ.aspx" id="ucBodyHead_ucFAQ" title="帮助中心" target="_blank">帮助中心</a></div>
+    </div>
+</div>
+
+            <div class="MainBody">
+                <div class="contentBox">
+                    <div class="reg_steps">
+                        <span class="right"><em>1 输入帐号</em> &gt; 2 选择找回方式 &gt; 3 设置密码 &gt; 4 完成</span>
+                        <h1>
+                            输入天翼帐号</h1>
+                    </div>
+                    <div class="formBox">
+                        <div class="explanation">
+                            <h1>
+                                温馨提示：
+                            </h1>
+                            <ul>
+                                <li>忘记天翼帐号，请<a href="http://passport.189.cn/SelfS/Find/GetName.aspx">点击此处找回</a>；</li>
+                                <li>密码可通过手机短信、语音留言、帐号验证或安全邮箱等方式找回。 </li>
+                            </ul>
+                        </div>
+                        <div class="ulreg">
+                            <p class="prompt">&nbsp;
+                                </p>
+                            <div id="errDemo" class="error" style="display: none">
+                                <div class="bg">
+                                    <div class="text">
+                                        <span id="lbl_Msg"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="formList">
+                                <p>
+                                    <label>
+                                        天翼帐号：</label>
+                                    <input name="txtUserID" type="text" maxlength="18" id="txtUserID" class="ipt" autocomplete="off">
+                                    <em></em></p>
+                                <p class="prompt" id="alt_uid">
+                                    <span class="">天翼手机用户请直接填写手机号码</span></p>
+                            </div>
+                            <div class="formList">
+                                <label>
+                                    验证码：</label>
+                                <input name="txtValidateCode" type="text" maxlength="6" id="txtValidateCode" class="ipt" autocomplete="off" style="width: 100px; text-transform: uppercase">
+                                
+
+<img id="IMG2" src="./findpass_files/images/yanzhengma.PNG" width="95" height="22"  style="cursor:pointer" alt="点击更换">
+
+
+                                <p class="prompt" id="alt_vcode">
+                                    <span class="redfont"></span>
+                                </p>
+                            </div>
+                            <div class="formList">
+                                <p class="prompt">
+                                    <button onclick="checkfull()" id="btnNext" class="input-btn" type="button">
+                                        <div class="left">
+                                            <div class="right">
+                                                <p class="center">
+                                                    下一步</p>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Shadow">
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            
+<div class="copyRight"><b><a href="http://www.vnet.cn/about/culture02.htm" target="_blank">增值电信业务经营许可证A2.B1.B2-20090001</a><br><a href="http://www.vnet.cn/about/culture.htm" target="_blank">京网文[2011]0814-291号</a> | <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备09031924号</a></b><a href="http://www.chinatelecom.com.cn/" target="_blank">中国电信集团</a> | 客服热线:10000<br>
+Copyright © 中国电信</div>
+
+
+
+        </div>
+    </form>
+
+
+</body></html>

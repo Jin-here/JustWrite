@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:columnCount="4"
+    android:rowCount="3" >
+
+    <ImageView 
+        android:id="@+id/image11"
+        android:layout_width="100dip"
+        android:layout_height="100dip"/>
+    
+    <ImageView 
+        android:id="@+id/image12"/>
+    
+    <ImageView 
+        android:id="@+id/image13"/>
+    
+    <ImageView 
+        android:id="@+id/image14"/>
+    
+    <ImageView 
+        android:id="@+id/image21"/>
+    
+    <ImageView 
+        android:id="@+id/image22"/>
+    
+    <ImageView 
+        android:id="@+id/image23"/>
+    
+    <ImageView 
+        android:id="@+id/image24"/>
+    
+    <ImageView 
+        android:id="@+id/image31"/>
+</GridLayout>

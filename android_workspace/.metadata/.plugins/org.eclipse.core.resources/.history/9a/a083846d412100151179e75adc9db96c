@@ -1,0 +1,83 @@
+package com.gaw.garbage.schedul;
+
+import android.content.Context;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+
+import com.gaw.garbage.R;
+import com.gaw.garbage.fragment.Fragment00;
+import com.gaw.garbage.fragment.Fragment01;
+import com.gaw.garbage.util.GawGestureListener.OnGestureOverListener;
+
+public class FragmentSchedul implements OnGestureOverListener {
+
+	private FragmentActivity fragmentactivity;
+	private FragmentManager mFM;
+	private Fragment00 fragment00;
+	private Fragment01 fragment01;
+	
+	public FragmentSchedul(FragmentActivity fragmentactivity) {
+		// TODO Auto-generated constructor stub
+		this.fragmentactivity = fragmentactivity;
+		this.mFM = fragmentactivity.getSupportFragmentManager();
+		//进入主页面先添加fragment00
+		fragment00 = new Fragment00();
+		FragmentTransaction mFT = mFM.beginTransaction();
+		mFT.add(R.id.container, fragment00, Fragment00.TAG);
+		mFT.commit();
+	}
+	
+	@Override
+	public void OnUpGestureOver() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void OnDownGestureOver() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void OnLeftGestureOver() {
+		// TODO Auto-generated method stub
+		//返回上次草稿
+		//若是首次创建，或被系统回收
+		if (mFM.findFragmentByTag(Fragment01.TAG) == null){
+			fragment01 = new Fragment01();
+			FragmentTransaction mFT = mFM.beginTransaction();
+			mFT.add(R.id.container,fragment01, Fragment01.TAG);
+			mFT.commit();
+		}else{
+			FragmentTransaction mFT = mFM.beginTransaction();
+			mFT.show(fragment01);
+			mFT.commit();
+		}
+		
+	}
+
+	@Override
+	public void OnRightGestureOver() {
+		// TODO Auto-generated method stub
+		//新建草稿纸
+		if (mFM.findFragmentByTag(Fragment00.TAG) == null){
+			fragment00 = new Fragment00();
+			FragmentTransaction mFT = mFM.beginTransaction();
+			mFT.add(R.id.container,fragment00, Fragment00.TAG);
+			mFT.commit();
+		}else{
+			FragmentTransaction mFT = mFM.beginTransaction();
+			mFT.show(fragment00);
+			mFT.commit();
+		}
+	}
+
+	@Override
+	public void OnScaleGestureOver() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

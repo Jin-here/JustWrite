@@ -1,0 +1,28 @@
+package com.example.zidongfashoumima;
+
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.telephony.SmsManager;
+
+import com.example.broadcast.MyBroadcastReceiver;
+
+public class MainActivity extends ActionBarActivity {
+
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
+
+		SmsManager smsManager = SmsManager.getDefault();
+		smsManager.sendTextMessage("10001", null, "xykdmm", null, null);
+		//smsManager.sendTextMessage(destinationAddress, scAddress, text, sentIntent, deliveryIntent);
+		MyBroadcastReceiver bc = new MyBroadcastReceiver();
+		unregisterReceiver(bc);
+	}
+
+	
+
+	
+
+}

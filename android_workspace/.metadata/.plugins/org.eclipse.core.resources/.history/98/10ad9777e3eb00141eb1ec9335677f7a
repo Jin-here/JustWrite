@@ -1,0 +1,27 @@
+package com.example.activity;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ImageView;
+
+import com.example.testandroid51.R;
+
+public class MainActivity extends Activity {
+	private ImageView image11;
+	private ImageView image12;
+	private ImageView image13;
+	private ImageView image14;
+	private ImageView image21;
+	private ImageView image22;
+	private ImageView image23;
+	private ImageView image24;
+	private ImageView image31;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
+		
+		
+	}
+}

@@ -1,0 +1,22 @@
+package com.environmentalweb.webservice.test;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+import com.environmentalweb.webservice.impl.MyWebServiceService;
+import com.environmentalweb.webservice.inter.MyWebServiceInter;
+
+public class Test {
+	public static void main(String[] args) {
+		MyWebServiceService ws = new MyWebServiceService();
+		MyWebServiceInter inter = ws.getMyWebServicePort();
+		System.out.println(inter.hello());
+		
+		ArrayList<Double> data = new ArrayList<Double>();
+		Random random = new Random();
+		for (int i = 0;i < 6;i++){
+			data.add(random.nextDouble());
+		}
+		inter.sendData(data);
+	}
+}

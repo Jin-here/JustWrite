@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.example.statics.DB.java&apos; to &apos;USERINFO.java&apos;&#x0D;&#x0A;- Original project: &apos;TestAndorid31&apos;&#x0D;&#x0A;- Original element: &apos;com.example.statics.DB.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.example.statics.USERINFO.java&apos;" description="Rename compilation unit &apos;DB.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.example.statics{DB.java" name="USERINFO.java" references="false" stamp="1427800981938" version="1.0"/>
+</session>

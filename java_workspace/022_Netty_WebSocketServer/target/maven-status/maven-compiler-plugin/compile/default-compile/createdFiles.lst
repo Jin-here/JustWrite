@@ -1,0 +1,5 @@
+com\vgaw\netty\server\ChatServer$1.class
+com\vgaw\netty\server\ChatServer.class
+com\vgaw\netty\channelhandler\HttpRequestHandler.class
+com\vgaw\netty\initailizer\ChatServerInitializer.class
+com\vgaw\netty\channelhandler\TextWebSocketFrameHandler.class

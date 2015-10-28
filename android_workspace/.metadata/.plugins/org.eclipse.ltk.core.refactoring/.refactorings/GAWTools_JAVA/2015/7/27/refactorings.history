@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;DateTools.java&apos; to &apos;Garbage/src/com.gaw.garbage.util&apos;&#x0D;&#x0A;- Original project: &apos;GAWTools_JAVA&apos;&#x0D;&#x0A;- Destination element: &apos;Garbage/src/com.gaw.garbage.util&apos;&#x0D;&#x0A;- Original element: &apos;com.example.gawtools.DateTools.java&apos;" description="Copy compilation unit" destination="=Garbage/src&lt;com.gaw.garbage.util" element1="/src&lt;com.example.gawtools{DateTools.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1435912460714" units="1" version="1.0"/>
+</session>

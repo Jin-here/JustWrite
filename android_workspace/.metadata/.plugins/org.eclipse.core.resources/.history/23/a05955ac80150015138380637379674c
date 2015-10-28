@@ -1,0 +1,170 @@
+/*
+ * Copyright 2009 Cedric Priscal
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License. 
+ */
+
+package android_serialport_api;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.security.InvalidParameterException;
+import java.util.Calendar;
+
+import com.example.mycomm.MainActivity;
+import com.example.netserver.NetServerService;
+import com.example.server.SerialportService;
+import com.example.socket.HexTransform;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
+import android.os.Bundle;
+import android.text.format.Time;
+import android.util.Log;
+import android.view.MotionEvent;
+
+public abstract class SerialPortActivity {
+
+	protected SerialPort mSerialPort;
+	protected OutputStream mOutputStream;
+	private InputStream mInputStream;
+	private ReadThread mReadThread;
+//	public DogThread dogThread;
+//	protected boolean feed=true;
+//	//写一个2秒定时器，2秒后就重启服务器
+//	public class DogThread extends Thread{
+//		
+//		@Override
+//		public void run() {
+//			super.run();
+//			   while(!feed) { 	
+//				   System.out.println("时间狗1 1");
+//				Time t=new Time();
+//				t.setToNow();
+//				int s_1=t.second;
+//				int s_2=999;
+//				while(!(s_2-s_1==2||s_2-s_1==-58)){
+//					
+//					t.setToNow();
+//					s_2=t.second;
+//				}
+//				System.out.println("重启服务器");
+//				SerialportService s= new SerialportService();
+//				s.onDestroy();
+//				SerialportService.ifSIMULATE=false;
+//				s.onStart(null, 0);
+//				feed=true;
+//			   }
+//				
+//			}
+//        
+//	}
+	
+
+	private class ReadThread extends Thread {
+
+		
+		@Override
+		public void run() {
+			super.run();
+			while (!isInterrupted()) {
+				try {
+					byte[] buffer = new byte[512];
+					System.out.println("mInputStream="+mInputStream);
+					if (mInputStream == null)
+						return;
+					//size = mInputStream.read(buffer);
+					int readCount = 0; // 已经成功读取的字节的个数
+					readCount += mInputStream.read(buffer, readCount,
+							512 - readCount);
+					if (readCount > 0) {
+						System.out.println("ARMto服务器111："+HexTransform.bytesToHexString(buffer));
+						onDataReceived(buffer, readCount);
+//						feed=true;
+						
+					}else{
+						byte[] buffer1 = new byte[]{0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x01,0x02,0x03,0x04,0x05,0x06};
+						onDataReceived(buffer1, 30);
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+					return;
+				}
+			}
+		}
+	}
+
+	protected void openSerial(File device, int baudate) {
+		try {
+			mSerialPort = getSerialPort(device.getAbsoluteFile(),
+					baudate);
+			mOutputStream = mSerialPort.getOutputStream();
+			mInputStream = mSerialPort.getInputStream();
+
+			/* Create a receiving thread */
+			mReadThread = new ReadThread();
+			mReadThread.start();
+		} catch (SecurityException e) {
+			return;
+		} catch (IOException e) {
+			return;
+		} catch (InvalidParameterException e) {
+			return;
+		}
+	}
+
+	protected void closeRead() {
+		if (mReadThread != null) {
+			mReadThread.interrupt();
+		}
+	}
+
+	protected SerialPort getSerialPort(File device,int baud) throws SecurityException, IOException, InvalidParameterException {
+		
+		mSerialPort = null;
+		String path;
+		int baudrate;
+		
+		if (mSerialPort == null) {
+			/* Read serial port parameters */
+			path = device.getAbsolutePath();
+			baudrate = baud;
+			/* Check parameters */
+			if ( (path.length() == 0) || (baudrate == -1)) {
+				throw new InvalidParameterException();
+			}
+
+			/* Open the serial port */
+			mSerialPort = new SerialPort(new File(path), baudrate, 0);
+			Log.v("debug", device.getAbsolutePath());
+		}
+		return mSerialPort;
+	}
+	
+	protected void closeSerialPort() throws IOException {
+		closeRead();
+		if (mSerialPort != null) {
+			mSerialPort.close();
+			mSerialPort = null;
+		}
+		if (mInputStream != null) {
+			mInputStream.close();
+		}
+	}
+	protected abstract void onDataReceived(final byte[] buffer, final int size);
+}

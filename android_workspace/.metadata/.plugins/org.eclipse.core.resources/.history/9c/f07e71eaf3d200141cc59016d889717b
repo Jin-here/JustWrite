@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <style name="oauth_style" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!-- 没有边框 -->
+        <item name="android:windowFloating">true</item><!-- 是否悬浮 -->
+    </style>
+</resources>

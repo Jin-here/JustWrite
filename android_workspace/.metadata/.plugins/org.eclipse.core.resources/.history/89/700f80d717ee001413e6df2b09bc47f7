@@ -1,0 +1,86 @@
+package com.example.activity;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.ImageView;
+
+public class MainActivity extends Activity implements Runnable{
+	private ImageView iV;
+	private Handler handler;
+	@SuppressLint("HandlerLeak")
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
+		
+		System.out.println(Thread.currentThread().getId());
+		iV = (ImageView) findViewById(R.id.iV);
+		Thread t = new Thread(this);
+		t.start();
+		
+		handler = new Handler(){
+			@Override
+			public void handleMessage(Message msg) {
+				// TODO Auto-generated method stub
+				super.handleMessage(msg);
+				if (msg.what == 0x11){
+					System.out.println("good");
+					//Bitmap bitmap = getPicture("http://image.xinmin.cn/2014/01/04/20140104144723280000.jpg");				
+					//iV.setImageBitmap(bitmap);
+					iV.setImageAlpha(50);
+				}
+			}
+		};
+			
+				
+				
+			
+			
+		
+	}
+	
+	private Bitmap getPicture(String path){
+		Bitmap bm = null;
+		try{
+			URL url = new URL(path);
+			URLConnection conn = url.openConnection();
+			conn.connect();
+			InputStream is = conn.getInputStream();
+			bm = BitmapFactory.decodeStream(is);
+			
+		}catch (MalformedURLException e1){
+			e1.printStackTrace();
+		}catch (IOException e){
+			e.printStackTrace();
+		}
+		return bm;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		if (!Thread.currentThread().isInterrupted()){
+		try{
+			System.out.println(Thread.currentThread().getId());
+			Thread.sleep(1000);
+		}catch (InterruptedException e){
+			e.printStackTrace();
+		}
+		Message m = handler.obtainMessage();
+		m.what = 0x11;
+		handler.sendMessage(m);
+		}
+				
+	}
+}

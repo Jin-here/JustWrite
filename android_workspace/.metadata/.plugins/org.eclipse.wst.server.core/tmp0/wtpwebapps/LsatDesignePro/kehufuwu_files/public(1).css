@@ -1,0 +1,40 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,fieldset,input,textarea,p,blockquote,th,td,font{
+	padding:0px;
+	margin:0px;
+	font-family: "ËÎÌו", A rial, Helvetica, sans-serif;
+	font-size:12px
+}
+ul li{ list-style:none;}
+img{ border:0;}
+A {
+	color:#000000;text-decoration:none
+}
+a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:hover {text-decoration:underline}
+a:active {text-decoration: none;}
+UL {
+	margin:0px;padding:0px;list-style-type:none;float:left;
+}
+LI {
+	padding:0px;margin:0px;list-style-type:none;float:left
+}
+body{
+	height:auto;
+	background:#E0FFFF;
+	width: 964px;
+}
+.main{float:left; width:997px;}
+.foot{float:left; width:997px; }
+.all{ width:997px; height:auto; float:left; padding-left:8px; padding-right:8px; background:#fff;}
+.chrfen{ height:1px; border-top:1px dashed #cccccc; margin-left:10px; margin-right:10px; overflow:hidden;margin-top:8px;}
+.mod{
+	height:auto;
+	width:964px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+.pesmain{ height:auto; width:1013px; float:left}
+/*top*/

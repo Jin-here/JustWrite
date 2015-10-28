@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.vgaw.hibernate.pojo">
+    <class name="Group" table="v_group">
+        <id name="id" column="id" length="36">
+            <generator class="uuid2"></generator>
+        </id>
+        <property name="name" column="name" length="16"></property>
+        <bag name="members" table="v_user_group" inverse="false">
+            <key column="group_id"></key>
+            <many-to-many column="user_id" class="User"></many-to-many>
+        </bag>
+    </class>
+</hibernate-mapping>

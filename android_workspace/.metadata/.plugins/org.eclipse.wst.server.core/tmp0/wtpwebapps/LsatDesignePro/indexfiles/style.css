@@ -1,0 +1,68 @@
+body                     {
+	background-repeat: no-repeat;
+	background-position: center 97px;
+}
+                                            
+a:link                   { color: #000; text-decoration: underline }
+a:visited                { color: #000; text-decoration: underline }
+a:hover                  { color: #f96; text-decoration: underline }
+a:active                 { color: #000; text-decoration: underline }
+a                        { color: #000; text-decoration: underline }
+ul 						 { font-size: 12px;font-family: 宋体; color: #666666; line-height: 25px;}
+h4						 { font-size:12px; font-family: 宋体; color: red;}
+                         
+td                       { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+.title_page              { color: black; font-weight: bold; font-size: 18px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+.title_block             { color: #878787; font-weight: 900; font-size: 14px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+.title_article           { color: #001; font-weight: bold; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+.title_paragraph         { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+.table_tab               { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+.table_head              { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+.table_class             { color: black; font-size: 11px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; padding-right: 5px; padding-left: 5px }
+.table_content           { color: black; font-size: 11px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; padding-right: 5px; padding-left: 5px }
+.table_subtotal          { color: black; font-weight: bold; font-size: 11px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; padding-right: 5px; padding-left: 5px }
+.table_total             { color: black; font-weight: bold; font-size: 11px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; padding-right: 5px; padding-left: 5px }
+.date                    { color: #f60; font-size: 10px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+.content_normal          { color: #555; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+.content_related         { color: white; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.content_related:link    { color: white; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.content_related:visited { color: white; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.content_related:hover   { color: #f90; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.content_related:active  { color: white; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.content_important       { color: #f60; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+.content_fig             { color: #888; font-style: italic; font-size: 11px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+.hints                   { color: #069; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+.nav_site                { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.nav_site:link           { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.nav_site:visited        { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.nav_site:hover          { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.nav_site:active         { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.nav_channel             { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.nav_channel:link        { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.nav_channel:visited     { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.nav_channel:hover       { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.nav_channel:active      { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.nav_section             { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.nav_section:link        { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.nav_section:visited     { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.nav_section:hover       { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.nav_section:active      { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.path                    { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.path:link               { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.path:visited            { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.path:hover              { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.path:active             { color: black; font-size: 12px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+.formtitle               { color: black; font-size: 11px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; padding-top: 6px }
+.form                    { color: black; font-size: 11px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+.form_text               { color: #777; font-size: 11px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; padding-top: 6px }
+.navigate_section	 { color: #1F2B79; font-size: 12px; font-family: 宋体; text-decoration: none }
+.navigate_section:link   { color: #1F2B79; font-size: 12px; font-family: 宋体; text-decoration: none }
+.navigate_section:visited{ color: #1F2B79; font-size: 12px; font-family: 宋体; text-decoration: none }
+.navigate_section:hover  { color: #f90; font-size: 12px; font-family: 宋体; text-decoration: none }
+.Vip_section	 { color: red; font-size: 14px; font-family: 宋体; text-decoration: none }
+.Vip_section:link   { color: #1F2B79; font-size: 12px; font-family: 宋体; text-decoration: none }
+.Vip_section:visited{ color: #1F2B79; font-size: 12px; font-family: 宋体; text-decoration: none }
+.navigate_section1	 { color: #FFFFFF; font-size: 12px; font-family: 宋体; text-decoration: none }
+.navigate_section1:link   { color: #FFFFFF; font-size: 12px; font-family: 宋体; text-decoration: none }
+.navigate_section1:visited{ color: #FFFFFF; font-size: 12px; font-family: 宋体; text-decoration: none }
+.navigate_section1:hover  { color: #f90; font-size: 12px; font-family: 宋体; text-decoration: none }

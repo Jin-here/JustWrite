@@ -1,0 +1,25 @@
+package com.gaw.accountsoft.dao;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.gaw.accountsoft.model.Tb_pwd;
+
+public class pwdDAO {
+	private SQLiteDatabase db;
+	private DBOpenHelper helper;
+	
+	public pwdDAO(Context context){
+		helper = new DBOpenHelper(context);
+	}
+	
+	public Tb_pwd find(){
+		db = helper.getWritableDatabase();
+		Cursor cursor = db.rawQuery("select * from tb_pwd", null);
+		if (cursor.moveToNext()){
+			return new Tb_pwd(cursor.getString(cursor.getColumnIndex("password")));
+		}
+		return null;
+	}
+}

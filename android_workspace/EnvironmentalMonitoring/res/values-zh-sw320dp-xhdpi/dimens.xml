@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="first_title">20sp</dimen>
+    <dimen name="second_title">16sp</dimen>
+    <dimen name="third_title">10sp</dimen>
+    <dimen name="forth_title">10sp</dimen>
+    
+    <dimen name="margin">5dip</dimen>
+    <dimen name="margin_big">22dip</dimen>
+    <dimen name="padding">2dip</dimen>
+    <dimen name="padding_big">22dip</dimen>
+    
+    <dimen name="login_edittext_width">200dip</dimen>
+    <dimen name="yanzhengma_width">111dip</dimen>    
+    <dimen name="machine_image_height">67dip</dimen>
+    <dimen name="button_height">29dip</dimen>
+    <dimen name="button_width">67dip</dimen>
+    
+    <dimen name="tabhost_title_height">27dip</dimen>
+    <dimen name="tabhost_three_width">270dip</dimen>
+    <dimen name="tabhost_three_checkbox_width">40dip</dimen>
+    <dimen name="sensor_value_height">53dip</dimen>
+    <dimen name="indicator_image_height">53dip</dimen>
+    <dimen name="sensor_spacing">9dip</dimen>
+    
+    <dimen name="spinner_width">133dip</dimen>
+    <dimen name="spinner_height">33dip</dimen>
+    
+    <dimen name="shezhi_item_width">258dip</dimen>
+</resources>

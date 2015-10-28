@@ -1,0 +1,1 @@
+document.writeln("<iframe name=\'head\' id=\'head\' width=\"100%\" height=86 frameborder=0 src='http://a1.gd.vnet.cn/end/end.html' marginwidth=0 marginheight=0 scrolling=no vspace=0><\/iframe>");

@@ -1,0 +1,47 @@
+package com.environmentalmonitoring.fragment;
+
+
+import java.util.ArrayList;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.GridView;
+
+import com.environmentalmonitoring.activity.R;
+import com.environmentalmonitoring.adapter.Tab00Adapter;
+import com.environmentalmonitoring.bean.SensorBean;
+import com.environmentalmonitoring.db.MySharedPreferences;
+
+public class Tab00Fragment extends Fragment {
+	public static final String TAG = "TAB00FRAGMENT";
+	
+	private ArrayList<SensorBean> data;
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		SharedPreferences mSP = getActivity().getApplication().getSharedPreferences(MySharedPreferences.NAME, Context.MODE_PRIVATE);
+		data.add(new SensorBean(R.string.co2_title, R.string.warn, mSP.getInt("item00_min", 0), mSP.getInt("item00_max", 0)));
+		data.add(new SensorBean(R.string.light_title, R.string.warn, mSP.getInt("item01_min", 0), mSP.getInt("item01_max", 0)));
+		data.add(new SensorBean(R.string.air_tmper_title, R.string.warn, mSP.getInt("item02_min", 0), mSP.getInt("item02_max", 0)));
+		data.add(new SensorBean(R.string.air_humid_title, R.string.warn, mSP.getInt("item03_min", 0), mSP.getInt("item03_max", 0)));
+		data.add(new SensorBean(R.string.soil_tmper_title, R.string.warn, mSP.getInt("item04_min", 0), mSP.getInt("item04_max", 0)));
+		data.add(new SensorBean(R.string.soil_humid_title, R.string.warn, mSP.getInt("item05_min", 0), mSP.getInt("item05_max", 0)));
+	}
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		View layout = inflater.inflate(R.layout.tab00_fragment, container,false);
+		GridView gV = (GridView) layout.findViewById(R.id.sensor_grid_view);
+		gV.setAdapter(new Tab00Adapter(getActivity(), R.id.sensor_grid_view, R.layout.sensor_grid_item, data));
+		return layout;
+	}
+}

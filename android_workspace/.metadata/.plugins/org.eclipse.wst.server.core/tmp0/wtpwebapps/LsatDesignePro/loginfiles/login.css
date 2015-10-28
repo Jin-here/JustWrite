@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* CSS Document */
+
+.head1{background:url(../img/head_bg1.gif) 0 -34px repeat-x; height:42px; text-align:left;}
+.head1 .logo{ background:url(../img/ctLogo.gif) no-repeat; width:123px; height:24px;margin:2px 0 0 5px; }
+
+.loginBody{ padding:5px; height:420px; text-align:left;}
+.loginBody .spIntro{ width:430px; border-left:1px solid #C6E1F2; height:410px; float:right; }
+.loginBody .spIntro .title{ background:url(../img/spLogo.gif) no-repeat; text-align:right; height:20px;width:350px; margin-left:30px;}
+.loginBody .spIntro ul{ width:380px; margin:20px 0 0 30px;}
+.loginBody .spIntro ul li{ margin:0 20px 20px 0; float:left;}
+.loginBody .login{ width:380px; float:left; margin-left:35px !important;margin-left:17px;}
+.loginBody .login .box{ margin:0; width:380px; height:280px; background:url(../img/login_bg.gif) no-repeat; padding:1px;}
+.loginBody .login .box .title{ background:url(../img/loginBox_logo.gif) no-repeat; height:30px; width:80px; margin:25px 0 0 25px;}
+.loginBody .login .box .error{ margin:0 0 0 90px; height:22px; background:url(../img/msgErr2.gif) repeat-x; width:260px;}
+.loginBody .login .box .error .bg{ height:22px; background:url(../img/msgErr3.gif) no-repeat right top;}
+.loginBody .login .box .error .text{  line-height:22px; height:22px; padding:0 4px 0 22px; color:#d79014; background:url(../img/msgErr1.gif) no-repeat;}
+.loginBody .login .box .form{width:350px; height:30px; margin:0px 0 10px 30px;}
+.loginBody .login .box .form label{display:block; float:left; width:60px;height:30px; line-height:30px; color:#076297;font-size:13px; font-weight:bold;}
+.loginBody .login .box .form i{ font-weight:bold; color:#069; padding:0 0 0 4px; font-size:14px; line-height:30px;}
+.loginBody .login .box .form .inputText{width:160px; color:#069; padding:3px 4px; height:14px; border:1px #069 solid }
+.loginBody .login .box .form .inputIco{ background-image:url(../img/inputIcon.gif); background-repeat:no-repeat; padding:3px 4px 4px 22px; width:160px; }
+.loginBody .login .box .formGo{ padding: 0px 0 10px 90px; width:100px;}
+.loginBody .login .box .formLine{ width:300px;  margin:5px 0 5px 50px; background:url(../img/line2.gif) no-repeat; height:1px; overflow:hidden;}
+.loginBody .login .box .formList{ padding:5px 0 0 60px; margin:0; width:300px; }
+.loginBody .loginInfo{ width:380px; float:left; margin:0 0 0 50px !important;margin-left:25px;}
+.loginBody .loginInfo .title{ background:url(../img/login_intro.gif) no-repeat; height:30px; width:350px;text-align:right; }
+.loginBody .loginInfo li{ line-height:22px;}
+
+.bodyallM{ width:448px; margin:0 auto; height:298px; border:1px solid #006C9B; }
+.loginBodyM{ padding:5px; height:170px; text-align:left;}
+.loginBodyM .login{ width:380px; float:left;margin-left:35px !important;margin-left:17px; }
+.loginBodyM .login .box{ margin:0; width:380px;padding:1px;}
+.loginBodyM .login .box .title{ background:url(../img/loginBox_logo.gif) no-repeat; height:30px; width:80px; margin:0px 0 0 25px;}
+.loginBodyM .login .box .error{ margin:0 0 0 90px; height:22px; background:url(../img/msgErr2.gif) repeat-x; width:260px;}
+.loginBodyM .login .box .error .bg{ height:22px; background:url(../img/msgErr3.gif) no-repeat right top;}
+.loginBodyM .login .box .error .text{  line-height:22px; height:22px; padding:0 4px 0 22px; color:#d79014; background:url(../img/msgErr1.gif) no-repeat;}
+.loginBodyM .login .box .form{width:350px; height:30px; margin:0px 0 5px 30px;}
+.loginBodyM .login .box .form label{display:block; float:left; width:60px;height:30px;line-height:30px; color:#076297;font-size:13px;font-weight:bold;}
+.loginBodyM .login .box .form i{ font-weight:bold; color:#069; padding:0 0 0 4px; font-size:14px; line-height:30px;}
+.loginBodyM .login .box .form .inputText{width:160px; color:#069; padding:3px 4px; height:14px; border:1px #069 solid }
+.loginBodyM .login .box .form .inputIco{ background-image:url(../img/inputIcon.gif); background-repeat:no-repeat; padding:3px 4px 4px 22px; width:160px; }
+.loginBodyM .login .box .formGo{ padding: 5px 0 5px 90px; width:100px;}
+.loginBodyM .login .box .formLine{ width:300px;  margin:5px 0 5px 50px; background:url(../img/line2.gif) no-repeat; height:1px; overflow:hidden;}
+.loginBodyM .login .box .formList{ padding:5px 0 0 80px; margin:0; width:200px; }
+
+
+.bodyallS{ width:278px; margin:0 auto; height:198px; border:1px solid #006C9B; }
+.loginBodyS{height:150px; text-align:left;}
+.loginBodyS .login{ width:278px; }
+.loginBodyS .login .box{ margin:0;width:260px;}
+.loginBodyS .login .box .error{ margin:0 0 0 75px; height:22px; background:url(../img/msgErr2.gif) repeat-x; width:260px;}
+.loginBodyS .login .box .error .bg{ height:22px; background:url(../img/msgErr3.gif) no-repeat right top;}
+.loginBodyS .login .box .error .text{line-height:22px; height:22px; padding:0 4px 0 22px; color:#d79014; background:url(../img/msgErr1.gif) no-repeat;}
+.loginBodyS .login .box .form{width:260px; margin:0px 0 10px 15px; padding:0; line-height:23px;}
+.loginBodyS .login .box .form label{display:block; float:left; width:60px; text-align:right;color:#076297;font-size:13px;font-weight:bold;line-height:23px; height:23px;}
+.loginBodyS .login .box .form i{ font-weight:bold; color:#069; padding:0 0 0 4px; font-size:12px; line-height:23px;}
+.loginBodyS .login .box .form .inputText{width:100px; color:#069; padding:3px 4px; height:14px; border:1px #069 solid; }
+.loginBodyS .login .box .form .inputIco{ background-image:url(../img/inputIcon.gif); background-repeat:no-repeat; padding:3px 4px 4px 22px; }
+.loginBodyS .login .box .formGo{ padding: 5px 0 0px 75px; width:100px;}
+.loginBodyS .login .box .formList{ width:200px; margin:5px 0 0 45px;}
+
+
+
+.bodyallR{ width:350px; margin:5px auto; height:180px; border:0px  }
+.loginBodyR{ padding:5px; height:170px; text-align:left;}
+.loginBodyR .login{ width:380px; float:left;margin-left:10px !important;margin-left:17px; }
+.loginBodyR .login .box{ margin:0; width:380px;padding:1px;}
+.loginBodyR .login .box .title{ background:url(../img/loginBox_logo.gif) no-repeat; height:30px; width:80px; margin:0px 0 0 25px;}
+.loginBodyR .login .box .error{ margin:0 0 0 30px; height:22px; background:url(../img/msgErr2.gif) repeat-x; width:260px;}
+.loginBodyR .login .box .error .bg{ height:22px; background:url(../img/msgErr3.gif) no-repeat right top;}
+.loginBodyR .login .box .error .text{  line-height:22px; height:22px; padding:0 4px 0 22px; color:#d79014; background:url(../img/msgErr1.gif) no-repeat;}
+.loginBodyR .login .box .form{width:350px; height:30px; margin:0px 0 0px 6px;}
+.loginBodyR .login .box .form label{display:block; float:left; width:60px;height:30px;line-height:25px; color:#076297;font-size:14px;font-weight:bold;}
+.loginBodyR .login .box .form i{ font-weight:bold; color:#069; padding:0 0 0 4px; font-size:14px; line-height:20px;}
+.loginBodyR .login .box .form .inputText{width:160px; color:#069; padding:3px 4px; height:18px; border:1px #069 solid }
+.loginBodyR .login .box .form .inputIco{ background-image:url(../img/inputIcon.gif); background-repeat:no-repeat; padding:0px 4px 2px 22px; width:160px; }
+.loginBodyR .login .box .formGo{ padding: 5px 0 5px 90px; width:100px;}
+.loginBodyR .login .box .formLine{ width:300px;  margin:5px 0 5px 10px; background:url(../img/line2.gif) no-repeat; height:1px; overflow:hidden;}
+.loginBodyR .login .box .formList{ padding:0px 5px 0 80px; margin:0; width:240px; }

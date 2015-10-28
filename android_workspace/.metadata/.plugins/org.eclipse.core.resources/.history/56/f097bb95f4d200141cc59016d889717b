@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="oauth_style" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!-- 没有边框 -->
+        <item name="android:windowIsFloating">true</item><!-- 是否悬浮 -->
+        <item name="android:windowIsTransparent>false</item><!-- 是否支持半透明 -->
+        <item name="android:windowNoTitle">true</item><!-- 没有Title -->
+        <item name="android:windowBackground">@drawable/</item><!-- 设置背景 -->
+    </style>
+</resources>

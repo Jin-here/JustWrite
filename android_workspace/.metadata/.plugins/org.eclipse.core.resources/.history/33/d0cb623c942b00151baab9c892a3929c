@@ -1,0 +1,16 @@
+
+public class NativeWaiter implements Waiter {
+
+	@Override
+	public void greetTo(String name) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void serveTo(String name) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

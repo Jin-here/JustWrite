@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <uri name="http://struts.apache.org/dtds/struts-2.3.dtd" uri="file:///E:/packages/struts-2.3.24/src/core/src/main/resources/struts-2.3.dtd"/>
+</catalog>

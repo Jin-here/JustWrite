@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal" >
+
+    <TextView 
+        android:layout_marginTop="@dimen/margin"
+        android:id="@+id/set_ip_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:text="@string/setting_ip"
+        android:textColor="@color/white"
+        android:textSize="@dimen/first_title"
+        android:layout_gravity="center_horizontal"/>
+   	<LinearLayout 
+   	    android:layout_width="@dimen/login_edittext_width" 
+   	    android:layout_marginTop="@dimen/margin"
+   	    android:layout_height="wrap_content"
+   	    android:background="@drawable/dialog_bg1"
+   	    android:layout_gravity="center_horizontal"
+   	    android:padding="@dimen/padding_big"
+   	    android:orientation="vertical">
+   	    
+   	    <EditText 
+            android:id="@+id/account_edit_text"
+            android:singleLine="true"
+            android:textSize="@dimen/third_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:hint="@string/username_hint"
+            android:background="@drawable/username_edit_bg"/>
+   	    
+   	    <EditText 
+            android:id="@+id/password_edit_text"
+            android:singleLine="true"
+            android:textSize="@dimen/third_title"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:background="@drawable/password_edit_bg"/>
+   	    
+   	    <LinearLayout
+   	        android:layout_width="match_parent" 
+   	    	android:layout_height="wrap_content"
+   	    	android:orientation="horizontal"
+   	    	>
+   	    	<CheckBox
+   	    	    android:id="@+id/recode_pwd_check_box"
+   	            android:layout_width="wrap_content"
+   	            android:layout_height="wrap_content"
+   	    	    android:text="@string/recode_password"
+   	    	    android:textColor="@color/blue"
+   	            android:textSize="@dimen/forth_title"
+   	            android:layout_gravity="center_vertical"
+   	            
+   	    	    />
+   	        <TextView 
+   	            android:id="@+id/forget_pwd_text_view"
+   	            android:layout_width="wrap_content"
+   	            android:layout_height="wrap_content"
+   	            android:layout_gravity="center_vertical"
+   	            android:text="@string/forget_password"
+   	            android:textColor="@color/red"
+   	            android:textSize="@dimen/forth_title"
+   	            android:layout_marginLeft="@dimen/margin_big"
+   	            android:layout_marginStart="@dimen/margin_big"/>
+   	        
+   	    </LinearLayout>
+   	    <Button
+        	android:id="@+id/login_button"
+        	android:layout_width="fill_parent"
+	        android:layout_height="@dimen/button_height"
+	        android:background="@drawable/btn_blue"
+	        android:layout_marginTop="@dimen/margin"
+	        android:layout_marginBottom="@dimen/margin"
+	        android:textColor="@color/white"
+	        android:textSize="@dimen/forth_title"
+	        android:text="@string/login" />
+   	    
+   	    <TextView
+		        android:id="@+id/register_text_view"
+		        android:layout_width="@dimen/button_width"
+		        android:layout_height="@dimen/button_height"
+		        android:text="@string/register"
+		        android:textColor="@color/blue"
+		        android:background="@drawable/blue_textview_bg"
+		        android:textSize="@dimen/forth_title"
+		        android:layout_marginTop="@dimen/margin"
+		        android:layout_gravity="end"
+		        android:gravity="center" />
+   	    
+   	    
+   	</LinearLayout>
+</LinearLayout>

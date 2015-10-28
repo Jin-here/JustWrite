@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.jst.ws.client.type.java">
+		<item value="/WebServiceTest/WSDL/weather.wsdl"/>
+		<item value="http://webservice.webxml.com.cn/WebServices/WeatherWS.asmx?wsdl"/>
+	</list>
+</section>

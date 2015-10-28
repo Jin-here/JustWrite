@@ -1,0 +1,105 @@
+package com.example.textandroid76;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class MainActivity extends FragmentActivity {
+
+	private FragmentManager mFM;
+	private Fragment00 fragment00;
+	
+	private Button click;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		click = (Button) findViewById(R.id.button);
+		click.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				FragmentTransaction mFT2 = mFM.beginTransaction();
+				mFT2.show(fragment00);
+				mFT2.commit();
+			}
+		});
+		
+		mFM = getSupportFragmentManager();
+		fragment00 = new Fragment00();
+
+		FragmentTransaction mFT = mFM.beginTransaction();
+		mFT.add(R.id.container, fragment00, Fragment00.TAG);
+		mFT.commit();
+		
+		FragmentTransaction mFT2 = mFM.beginTransaction();
+		mFT2.hide(fragment00);
+		mFT2.commit();
+		
+		
+		
+		/*FragmentTransaction mFT1 = mFM.beginTransaction();
+		mFT1.detach(fragment00);
+		mFT1.commit();*/
+		
+		System.out.println("activity---oncreate");
+
+	}
+	
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		System.out.println("activity---onpause");
+		Fragment fragment = mFM.findFragmentByTag(Fragment00.TAG);
+		
+		
+		/*System.out.println("fragment:null?" + ((fragment==null)?"true":"false"));
+		
+		System.out.println("isadded?" + ((fragment.isAdded())?"true":"false"));
+		
+		System.out.println("isdetached?" + ((fragment.isDetached())?"true":"false"));
+		
+		System.out.println("isHidden?" + ((fragment.isHidden())?"true":"false"));
+		
+		System.out.println("isvisible?" + ((fragment.isVisible())?"true":"false"));*/
+		
+
+	}
+
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		System.out.println("activity---ondestroy");
+	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		System.out.println("activity---onresume");
+	}
+
+	@Override
+	protected void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		System.out.println("activity---onstart");
+	}
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		System.out.println("activity---onstop");
+	}
+	
+}

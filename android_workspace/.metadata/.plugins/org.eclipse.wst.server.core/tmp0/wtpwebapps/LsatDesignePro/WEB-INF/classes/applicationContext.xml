@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- 连接数据库 -->
+	<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/gdibss?characterEncoding=utf8" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+	</bean>
+	<bean id="mySessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hbm2ddl.auto">update</prop>
+				<prop key="show_sql">true</prop>
+			</props>
+		</property>
+		<property name="annotatedClasses">
+			<list>
+				<value>com.bean.UserInfor</value>
+				<value>com.bean.ContractInfor</value>
+				<value>com.bean.OrderInfor</value>
+				<value>com.bean.UserContract</value>
+				<value>com.bean.AdminInfor</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	<bean id="UserDao" class="com.dao.UserToDBDaoImp">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="ManageDao" class="com.dao.ManageDaoImp">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+</beans>

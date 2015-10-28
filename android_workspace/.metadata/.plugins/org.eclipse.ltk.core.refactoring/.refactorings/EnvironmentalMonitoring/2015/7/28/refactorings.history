@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;CrashHandler.java&apos; to &apos;Garbage/src/com.gaw.garbage.debug&apos;&#x0D;&#x0A;- Original project: &apos;EnvironmentalMonitoring&apos;&#x0D;&#x0A;- Destination element: &apos;Garbage/src/com.gaw.garbage.debug&apos;&#x0D;&#x0A;- Original element: &apos;com.environmentalmonitoring.crash.CrashHandler.java&apos;" description="Copy compilation unit" destination="=Garbage/src&lt;com.gaw.garbage.debug" element1="/src&lt;com.environmentalmonitoring.crash{CrashHandler.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1436229025323" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,100 @@
+package com.example.activity;
+
+import java.util.Random;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.example.testandroid32.R;
+
+public class MainActivity extends Activity {
+	private final int[] btngroup = new int[]{R.id.btn12,R.id.btn21,R.id.btn33,R.id.btn43};
+	
+	private Button btn00 = null;	//点我啊
+	private Button btn01 = null;	//点我啊
+	private Button btn02 = null;	//点我啊
+	private Button btn03 = null;	//点我啊
+	private Button reset = null;	//重置
+	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.relativelayout);
+		
+		btn00 = (Button) findViewById(btngroup[0]);		
+		btn01 = (Button) findViewById(btngroup[1]);
+		btn02 = (Button) findViewById(btngroup[2]);
+		btn03 = (Button) findViewById(btngroup[3]);		
+		reset = (Button) findViewById(R.id.reset);
+		/*************随*****机******数****************/
+		
+		
+		
+		
+		/*************随*****机******数****************/
+		OnClickListener listener = new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Button hit = (Button) v;
+				for (int i=0;i < btngroup.length;i++){
+					
+					if (hit.getId()==btngroup[i]){
+						hit.setText("真乖~");
+					}else{
+						Button temp = (Button) findViewById(btngroup[i]);
+						temp.setText("我生气了！！！");
+					}
+				}
+			}
+		};
+		
+		btn00.setOnClickListener(listener);
+		btn01.setOnClickListener(listener);
+		btn02.setOnClickListener(listener);
+		btn03.setOnClickListener(listener);
+			
+		reset.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				setText("点我呀！！！");
+			}
+		});
+	}
+	
+	/**
+	 * 设置所有Button的text
+	 * @param text
+	 */
+	private void setText(String text){
+		for (int i=0;i<btngroup.length;i++){
+			Button btn = (Button) findViewById(btngroup[i]);
+			btn.setText(text);
+		}
+	}
+	
+	/**
+	 * 产生随机数
+	 */
+	private String random(){
+		//String show[] = null;
+		//Random rand = new Random(System.currentTimeMillis());
+		Random rand_num = new Random(4);
+		Random rand_child = new Random(100);
+		String result = "";
+		int num = rand_num.nextInt();
+		for (int i = 0;i < num;i++){
+			result += rand_child.nextInt() + " ";
+		}
+		return result;
+	}
+}

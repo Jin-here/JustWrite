@@ -1,0 +1,69 @@
+a {
+	text-decoration: none;
+}
+
+a.line:link { color: #0070e9; text-decoration: underline; background-color:#fff} 
+a.line:visited { color: #0070e9; text-decoration: underline; background-color:#fff} 
+a.line:hover { color: #fff; text-decoration: none; background-color:#0070e9} 
+a.line:active { color: #fff; text-decoration: underline; background-color:#0070e9} 
+
+a.line2 { color: #0071e8; text-decoration: none} 
+
+.title1b70e5 {
+	font-family: Verdana, "宋体";
+	font-size: 14px;
+	font-weight: bold;
+	color: #0070ea;
+}
+
+.title2 {
+	font-family: Verdana, "宋体";
+	font-size: 11px;
+	color: #0070EA;
+}
+
+.en {
+	font-family: Verdana, "宋体";
+	font-size: 10px;
+}
+body {
+	font-family: "宋体", Verdana;
+	font-size: 11px;
+	line-height: 140%;
+	color: #1A427F;
+	text-decoration: none;
+	background-color: #4071FC;
+	margin: 0px;
+	padding: 0px;
+}
+.font_1A427F {
+	color: #1A427F;
+}
+
+.font_white {
+	color: #FFFFFF;
+}
+a {
+	text-decoration: none;
+}
+.font_fe4f00 {
+	color: #fe4f00;
+}
+.font_0089b5 {
+	color: #0089b5;
+}
+.font_f27500 {
+	color: #f27500;
+}
+.font_9f5d06 {
+	color: #9f5d06;
+}
+.font_333333 {
+	color: #555555;
+}
+.font_gray {
+	color: #555555;
+}
+.font_000099 {
+	color: #000099;
+}

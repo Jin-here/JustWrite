@@ -1,0 +1,22 @@
+package com.gaw.cloud.util;
+import java.io.IOException;
+import java.util.concurrent.ThreadPoolExecutor;
+
+import com.gaw.cloud.server.Cloud;
+
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		try {
+			Cloud.getInstance().start();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	
+}
