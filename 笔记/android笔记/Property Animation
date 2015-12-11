@@ -1,0 +1,171 @@
+Property Animation
+
+
+Property Animation系统是一个稳健的framework可以让你产生几乎任何动画。你可以定义一个动画来改变某个对象的某个属性，而不用
+管这个对象是否显示在屏幕上。
+
+
+Property Animation和View Animation区别
+View Animation系统只针对于View对象，如果想针对non-View对象，你需要自己实现。
+View Animation系统只提供了View对象的部分方面来产生动画（提供动画效果有限），例如缩放和旋转，但却不可以是背景色（具体详细
+    的属性）。
+View Animation系统动画效果只是在视觉上产生动画，对象实质属性值没有发生改变。例如让一个按钮从左移到右的动画效果，虽然按钮
+    移到右边，但是该位置是不可以点击按钮的，因为按钮的实质位置还是在左边，如果想可以点击的话，就要自己实现逻辑。
+Property Animation没有如上缺陷。
+
+
+Property Animation系统可以让你定义动画的如下属性：
+Duration：动画持续时长
+Time interpolation：加速度
+Repeat count and behaviour：动画是否循环或者（you want the animation to play back in reverse）
+Animator sets：动画集合，可以让多个动画同时播放或者现行播放
+Frame refresh delay：刷新率（帧），默认为10ms刷新一次（即产生一次重绘）。该值取决于系统运行速度
+
+
+Property Animation主要类介绍
+Animator：分为ValueAnimator，ObjectAnimator，AnimatorSet
+ValueAnimator：定时器，计算动画过程中的值。也包括(whether an animation repeats, listeners that receive update events,
+    and the ability to set custom types to evaluate)，注意，ValueAnimator只计算值，但不将这些值应用到对象上，所以你必须
+    实现listener for updates to values calculated by the ValueAnimator and modify the objects that you want to animate
+    with your own logic。
+    例子：ValueAnimator允许你设置一系列int, float, color values来产生动画
+        ValueAnimator animation = ValueAnimator.ofFloat(0f, 1f);
+        animation.setDuration(1000);
+        animation.start();
+        1秒钟从0变化到1
+
+        ValueAnimator animation = ValueAnimator.ofObject(new MyTypeEvaluator(), startPropertyValue, endPropertyValue);
+        animation.setDuration(1000);
+        animation.start();
+        1秒钟从startPropertyValue变化到endPropertyValue使用MyTypeEvaluator的逻辑
+    上面两个例子只是产生值的变化，跟想要产生视觉效果的对象没有任何联系，因为这些值的改变没有应用到对象上面，可以监听
+    ValueAnimation.AnimatorUpdateListener中的onAnimationUpdate()方法。通过调用传入onAnimationUpdate()方法中的
+    ValueAnimator变量的getAnimatedValue()方法来获取当前值（该方法每帧调用一次），然后再应用到对象属性就可以了。注意：
+    View中所有的setter方法会自动重绘组件，不需要手动调用invalidate()方法来重绘组件。
+ObjectAnimator：该类是ValueAnimator的子类，不仅有父类定时器和计算值的功能，还可以将值应用到目标类的功能。这样就简化了
+    ValueAnimator，而不再需要实现ValueAnimator.AnimatorUpdateListener接口了。
+    例子：
+        ObjectAnimator anim = ObjectAnimator.offFloat(foo, "alpha", 0f, 1f);
+        anim.setDuration(1000);
+        anim.start();
+        即让foo对象中的alpha属性值在1秒内从0变为1，要产生效果，还必须满足一些如下条件：
+        1：foo中要有相应的setter方法（或者use a wrapper class that you have rights to change and have that wrapper
+            receive the value with a valid setter method and forward it to the original object或者user ValueAnimator）
+        2：如果只在values...参数中指定了一个值（例如ObjectAnimation.ofFloat(targetObject, "propName", 1f)），系统默认他
+            是ending value of the animation。因此类中需要有getter方法来让系统获取start value of the animation。
+        3：getter和setter方法操纵的数据类型必须是一样的，即targetObject.setPropName(float)和
+            targetObject.getPropName(float)对应。
+
+
+Evaluator
+为动画的属性值，从一个值变为另一个值，提供计算方法，分为IntEvaluator，FloatEvaluator，ArgbEvaluator，TypeEvaluator。
+系统默认提供的为int，float，color，分别由IntEvaluator，FloatEvaluator和ArgbEvaluator支持。如果你想计算其他类型，可以通过
+实现TypeEvaluator接口中的唯一方法evaluate()方法。例如：
+public class FloatEvaluator implements TypeEvaluator{
+    public Object evaluate(float fraction, Object startValue, Object endValue){
+        float startFloat = ((Number)startValue).floatValue();
+        return startFloat + fraction * ((((Number)endValue).floatValue()) - startFloat);
+    }
+}
+
+
+Interpolators
+加速度。
+系统默认提供的有LinearInterpolator（匀速），以及AccelerateDecelerateinterpolator（先加速后减速），如下。如果默认实现不能
+满足你的要求，你可以痛多实现TimeInterpolator接口在自定义。
+AccelerateDecelerateinterpolator
+public float getInterpolation(float input){
+    return (float)(Math.cos((input + 1) * Math.PI) / 2.0f) + 0.5f;
+}
+
+LinearInterpolator
+public float getInterpolation(float input){
+    return input;
+}
+
+
+指定关键帧
+关键帧是time/value对。让你设置在特定时间动画达到特定的值。每一个关键帧都有自己的interpolator来指定从上次关键帧到本次关键
+帧的动画效果。例如：
+keyframe kf0 = keyframe.ofFloat(0f, 0f);
+keyframe kf1 = keyframe.ofFloat(0.5f, 360f);
+keyframe kf2 = keyframe.ofFloat(1f, 0f);
+PropertyValuesHolder pvhRotation = PropertyValuesHolder.ofKeyframe("rotation", kf0, kf1, kf2);
+ObjectAnimator rotationAnim = ObjectAnimator.ofPropertyValuesHolder(target, pvhRotation);
+rotationAnim.setDuration(5000ms);
+
+
+设计动画集合
+有时你需要多个动画之间有先后顺序，或者同时执行，或者一段延时后执行。例子如下（详细见例子Bouncing Balls）：
+1.Plays bounceAnim
+2.Play squashAnim1,squashAnim2,squashAnim1,and stretchAnim2 at the same time
+3.Plays bounceBackAnim
+4.Plays fadeAnim
+
+AnimatorSet bouncer = new AnimatorSet();
+bouncer.play(bounceAnim).before(squashAnim1);
+bouncer.play(squashAnim1).with(squashAnim2);
+bouncer.play(squashAnim1).with(stretchAnim1);
+bouncer.play(squashAnim1).with(stretchAnim2);
+bouncer.play(bounceBackAnim).after(stretchAnim2);
+ValueAnimator fadeAnim = ObjectAnimator.ofFloat(newBall, "alpha", 1f, 0f);
+fadeAnim.setDuration(250);
+AnimatorSet animatorSet = new AnimatorSet();
+animatorSet.play(bouncer).before(fadeAnim);
+animatorSet.start();
+
+下面展示了3中实现动画集的方式：
+ObjectAnimator animX = ObjectAnimator.ofFloat(myView, "x", 50f);
+ObjectAnimator animY = ObjectAnimator.ofFloat(myView, "y", 100f);
+AnimatorSet animSetXY = new AnimatorSet();
+animSetXY.playTogether(animX, animY);
+animSetXY.start();
+
+PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat("x", 50f);
+PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat("y", 100f);
+ObjectAnimator.ofPropertyValuesHolder(myView, pvhX, pvyY).start();
+
+myView.animate().x(50f).y(100f);
+
+
+在XML中定义动画
+为了将Property Animation和View Animation区分开来，Property Animation应该放在res/animator/中。Using the animator
+directory name is optional, but necessary if you want to use the layout editor tools in the Eclipse ADT plugin
+(ADT 11.0.0+), because ADT only searches the res/animator/ directory for property animation resources
+下面展示了一些类和XML Tag的对应关系
+ValueAnimator-<animator>
+ObjectAnimator-<objectAnimator>
+AnimatorSet-<set>
+
+例子如下：
+<set android:ordering="sequentially">
+    <set>
+        <objectAnimator
+            android:propertyName="x"
+            android:duration="500"
+            android:valueTo="400"
+            android:valueType="intType"/>
+        <objectAnimator
+            android:propertyName="y"
+            android:duration="500"
+            android:valueTo="300"
+            android:valueType="intType"/>
+    </set>
+    <objectAnimator
+        android:propertyName="alpha"
+        android:duration="500"
+        android:valueTo="1f"/>
+</set>
+AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(myContext,
+    R.anim.property_animator);
+set.setTarget(myObject);
+set.start();
+
+扩展知识：
+Animator.AnimatorListener另一个监听接口，内含方法如下：
+onAnimationStart()：动画开始时调用
+onAnimationEnd()  ：动画结束时调用
+onAnimationRepeat():动画重复时调用
+onAnimationCancel()：动画取消时调用，会同时调用onAnimationEnd()方法，不管动画是一何种方式结束
+如果你不想实现Animator.AnimatorListener的所有接口方法，你可以继承AnimatorListenerAdapter类，他只提供的所有的空实现。
+见例子：Bouncing Balls。
