@@ -49,9 +49,7 @@ public class MainActivity extends FragmentActivity {
             // MediaStore.Images.Media.EXTERNAL_CONTENT_URI: content://media/external/images/media
             // NOTE: it will cause exception if you put intent.addCategory(Intent.CATEGORY_OPENABLE) here
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB){
-			intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
-		}
+        intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
 
         startActivityForResult(intent, 0x11);
     }
