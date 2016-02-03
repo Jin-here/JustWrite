@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_qqhy"
+        android:drawableTop="@drawable/share_qq"
+        android:gravity="center_horizontal"
+        android:text="QQ好友"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_qqkj"
+        android:drawableTop="@drawable/share_qzone"
+        android:gravity="center_horizontal"
+        android:text="QQ空间" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_wxhy"
+        android:drawableTop="@drawable/share_wechat"
+        android:gravity="center_horizontal"
+        android:text="微信好友" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_wxpy"
+        android:drawableTop="@drawable/share_wxcircle"
+        android:gravity="center_horizontal"
+        android:text="微信朋友圈" />
+</LinearLayout>
