@@ -24,6 +24,23 @@ import in.srain.cube.views.ptr.indicator.PtrIndicator;
  * 下拉参考：https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
  * 上拉参考：https://github.com/liaohuqiu/android-cube-app
  */
+
+/**
+ 下拉基本参数配置，详见xml中实例，默认配置即可
+ There are 6 properties:
+ Resistence
+    This is the resistence while you are moving the frame, default is: 1.7f.
+ Ratio of the Height of the Header to Refresh
+    The ratio of the height of the header to trigger refresh, default is: 1.2f.
+ Duration to Close
+    The duration for moving from the position you relase the view to the height of header, default is 200ms.
+ Duration to Close Header
+    The default value is 1000ms
+ Keep Header while Refreshing
+    The default value is true.
+ Pull to Refresh / Release to Refresh
+    The default value is Release to Refresh.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private ListView load_more_small_image_list_view;
@@ -38,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         addData();
-        load_more_small_image_list_view = (ListView) findViewById(R.id.load_more_small_image_list_view);
         adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.test_list_item, dataList);
 
         final StoreHouseHeader header = new StoreHouseHeader(MainActivity.this);
@@ -52,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onUIReset(PtrFrameLayout frame) {
                 mLoadTime++;
-                String string = mStringList[mLoadTime % mStringList.length];
+                String string = mStringList[mLoadTime = mLoadTime % mStringList.length];
                 header.initWithString(string);
             }
 
@@ -76,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        frame.setDurationToCloseHeader(3000);
         frame.setHeaderView(header);
         frame.addPtrUIHandler(header);
         frame.postDelayed(new Runnable() {
@@ -89,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
         // load more container
         final LoadMoreListViewContainer loadMoreListViewContainer = (LoadMoreListViewContainer) findViewById(R.id.load_more_list_view_container);
         loadMoreListViewContainer.useDefaultFooter();
-        load_more_small_image_list_view.setAdapter(adapter);
         loadMoreListViewContainer.setLoadMoreHandler(new LoadMoreHandler() {
             @Override
             public void onLoadMore(LoadMoreContainer loadMoreContainer) {
@@ -105,6 +119,8 @@ public class MainActivity extends AppCompatActivity {
                 }, 1000);
             }
         });
+        load_more_small_image_list_view = (ListView) findViewById(R.id.load_more_small_image_list_view);
+        load_more_small_image_list_view.setAdapter(adapter);
 
         frame.setPtrHandler(new PtrHandler() {
             @Override
