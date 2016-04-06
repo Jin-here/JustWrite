@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
         // 设置每一个Tab的布局，不设置则使用默认布局
+		// 注意：自定义布局中不能设置背景，不然会死的很惨，具体原因有待探究
         /*slidingTabLayout.setCustomTabView();*/
         slidingTabLayout.setViewPager(viewPager);
 
