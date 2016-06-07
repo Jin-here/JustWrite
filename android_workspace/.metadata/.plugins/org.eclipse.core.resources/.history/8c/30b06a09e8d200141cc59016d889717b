@@ -1,6 +1,0 @@
-<resources>
-
-    <string name="app_name">AvrilWeibo</string>
-	<string name="load_msg_title">网络状态提示</string>
-	<string name="load_msg_context">当前没有可以使用的网络，请设置网络！</string>
-</resources>

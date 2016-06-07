@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;EnvironmentalWebClient/wsdl/environmentalweb&apos; to &apos;environmentalweb.wsdl&apos;" description="Rename resource &apos;environmentalweb&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="wsdl/environmentalweb" name="environmentalweb.wsdl" stamp="1435541995111" updateReferences="true"/>
-</session>

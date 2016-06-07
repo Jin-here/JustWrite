@@ -1,3 +1,0 @@
-eclipse.preferences.version=1
-module-start-timeout=300000
-runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimes>\r\n  <runtime id\="HTTP Server" location\="" name\="HTTP Server" runtime-type-id\="org.eclipse.wst.server.http.runtime" timestamp\="0"/>\r\n  <runtime id\="J2EE Runtime Library" location\="E\:/clientsoftwares" name\="J2EE Runtime Library" runtime-type-id\="org.eclipse.jst.server.core.runtimeType" timestamp\="0" vm-install-id\="1431649240976" vm-install-type-id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType"/>\r\n  <runtime id\="Apache Tomcat v8.0" location\="E\:/packages/apache-tomcat-8.0.23" name\="Apache Tomcat v8.0" runtime-type-id\="org.eclipse.jst.server.tomcat.runtime.80" timestamp\="0"/>\r\n</runtimes>\r\n

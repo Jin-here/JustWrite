@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move 2 elements to &apos;EnvironmentalServer/src/android_serialport_api&apos;&#x0D;&#x0A;- Original project: &apos;EnvironmentalServer&apos;&#x0D;&#x0A;- Destination element: &apos;EnvironmentalServer/src/android_serialport_api&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     com.environmentalserver.thread.ToArm.java&#x0D;&#x0A;     com.environmentalserver.thread.ToClientThread.java&#x0D;&#x0A;- Update references to refactored element" description="Move compilation units" destination="/src&lt;android_serialport_api" element1="/src&lt;com.environmentalserver.thread{ToArm.java" element2="/src&lt;com.environmentalserver.thread{ToClientThread.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1434712463008" units="2" version="1.0"/>
-</session>

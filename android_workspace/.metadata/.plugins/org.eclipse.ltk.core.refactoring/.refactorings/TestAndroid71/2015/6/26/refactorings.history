@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;AndroidManifest.xml&apos; to &apos;TestAndroid73&apos;&#x0D;&#x0A;- Original project: &apos;TestAndroid71&apos;&#x0D;&#x0A;- Destination element: &apos;TestAndroid73&apos;&#x0D;&#x0A;- Original element: &apos;AndroidManifest.xml&apos;" description="Copy file" element1="AndroidManifest.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1434952838026" target="/TestAndroid73" units="0" version="1.0"/>
-</session>

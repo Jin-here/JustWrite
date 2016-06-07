@@ -1,7 +1,0 @@
-package com.test.layout;
-
-import android.app.Fragment;
-
-public class DetailFragment extends Fragment {
-
-}

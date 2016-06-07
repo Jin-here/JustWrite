@@ -108,6 +108,7 @@ public class LetterIndexView extends View {
             float halfDrawHeight = hintDrawable.getIntrinsicHeight() / 2;
             float translateY = offset - halfDrawHeight;
             canvas.save();
+	    // canvas.translate(0, translateY);
             canvas.translate(translateX, translateY);
             hintDrawable.draw(canvas);
             canvas.restore();

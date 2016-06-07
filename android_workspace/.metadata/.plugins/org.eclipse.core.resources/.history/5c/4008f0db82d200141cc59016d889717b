@@ -1,5 +1,0 @@
-<resources>
-
-    <string name="app_name">AvrilWeibo</string>
-	<string name="load_msg_title">网络状态提示</string>
-</resources>

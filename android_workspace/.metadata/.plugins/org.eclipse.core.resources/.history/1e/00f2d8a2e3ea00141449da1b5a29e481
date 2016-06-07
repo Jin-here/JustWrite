@@ -1,7 +1,0 @@
-package com.example.activity;
-
-import android.app.Fragment;
-
-public class ItemFragment extends Fragment {
-
-}

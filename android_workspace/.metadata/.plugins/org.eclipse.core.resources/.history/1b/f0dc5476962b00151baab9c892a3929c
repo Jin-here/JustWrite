@@ -1,7 +1,0 @@
-package java;
-
-import org.springframework.aop.MethodBeforeAdvice;
-
-public class GreetingBeforeAdvice implements MethodBeforeAdvice {
-
-}
