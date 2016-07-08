@@ -1,4 +1,4 @@
-package com.jrq365.jeffgxy;
+package com.vgaw.sexygirl.ui;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,16 +7,17 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.GridLayout;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.tencent.connect.share.QzoneShare;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
@@ -27,6 +28,7 @@ import com.tencent.open.utils.ThreadManager;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
+import com.vgaw.sexygirl.R;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -36,45 +38,49 @@ import java.util.ArrayList;
  */
 public class SharePop {
 
-    private final String WX_APP_ID = "wx264520611fecb7cd";
-    private final String WX_APP_SECRET = "e222fbd74cf87a75534ecffd21a5a1e6";
+    private static String WX_APP_ID = "wx264520611fecb7cd";
+    private static String WX_APP_SECRET = "e222fbd74cf87a75534ecffd21a5a1e6";
 
-    private final String QQ_APP_ID = "1104811677";
-    private final String QQ_APP_SECRET = "u2VY3xPXHbCFr5f9";
+    public static String QQ_APP_ID = "1104811677";
+    private static String QQ_APP_SECRET = "u2VY3xPXHbCFr5f9";
 
+    private PopupWindow popupWindow;
     private Activity mActivity;
     private IWXAPI api;
     private Tencent mTencent;
+
+    private View view;
 
     public SharePop(Activity mActivity, Tencent mTencent){
         this.mActivity = mActivity;
         this.mTencent = mTencent;
         api = WXAPIFactory.createWXAPI(mActivity, WX_APP_ID, true);
         api.registerApp(WX_APP_ID);
+        init();
     }
 
-    public void show(View v){
+    private void init(){
         LayoutInflater inflater = (LayoutInflater) mActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.share_pop, null);
-        TextView btn_wxhy = (TextView) view.findViewById(R.id.btn_wxhy);
-        TextView btn_wxpy = (TextView) view.findViewById(R.id.btn_wxpy);
-        TextView btn_qqhy = (TextView) view.findViewById(R.id.btn_qqhy);
-        TextView btn_qqkj = (TextView) view.findViewById(R.id.btn_qqkj);
+        view = inflater.inflate(R.layout.share_pop, null);
+        LinearLayout btn_wxhy = (LinearLayout) view.findViewById(R.id.btn_wxhy);
+        LinearLayout btn_wxpy = (LinearLayout) view.findViewById(R.id.btn_wxpy);
+        LinearLayout btn_qqhy = (LinearLayout) view.findViewById(R.id.btn_qqhy);
+        LinearLayout btn_qqkj = (LinearLayout) view.findViewById(R.id.btn_qqkj);
         btn_wxhy.setOnClickListener(listener);
         btn_wxpy.setOnClickListener(listener);
         btn_qqhy.setOnClickListener(listener);
         btn_qqkj.setOnClickListener(listener);
+        view.setOnClickListener(listener);
 
-        PopupWindow popupWindow = new PopupWindow(view, LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        popupWindow.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffffff")));
+        popupWindow = new PopupWindow(view, FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT);
+        popupWindow.setBackgroundDrawable(new ColorDrawable(mActivity.getResources().getColor(R.color.half_transparent)));
         popupWindow.setOutsideTouchable(true);
+    }
 
-        WindowManager windowManager = (WindowManager) mActivity.getSystemService(Context.WINDOW_SERVICE);
-        int height = windowManager.getDefaultDisplay().getHeight();
+    public void show(){
         // 设置好参数之后再show
-        popupWindow.showAtLocation(v, Gravity.NO_GRAVITY, 0, height - popupWindow.getHeight());
-
+        popupWindow.showAtLocation(view, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
     }
 
     View.OnClickListener listener = new View.OnClickListener() {
@@ -98,30 +104,57 @@ public class SharePop {
                     shareToQQZone();
                     break;
             }
+            if (popupWindow != null){
+                if (popupWindow.isShowing()){
+                    popupWindow.dismiss();
+                }
+            }
         }
     };
+
+    private String title;
+    private String summary;
+    private String imageUrl;
+    private String targetUrl;
+
+    public SharePop setData(String title, String summary, String imageUrl, String targetUrl){
+        this.title = title;
+        this.summary = summary;
+        this.imageUrl = imageUrl;
+        this.targetUrl = targetUrl;
+        return this;
+    }
 
     /**
      * 网址参考：
      * https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419317340&token=eef463de3eb89ff872ff5652734d0d62dda488b8&lang=zh_CN
      * @param isToPX
      */
-    private void shareWebToWX(boolean isToPX){
-        WXWebpageObject webpage = new WXWebpageObject();
-        webpage.webpageUrl = "http://www.baidu.com/";
+    private void shareWebToWX(final boolean isToPX){
+        ImageLoader.getInstance().loadImage(this.imageUrl, new SimpleImageLoadingListener(){
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                Bitmap thumb = loadedImage;
+                WXWebpageObject webpage = new WXWebpageObject();
+                webpage.webpageUrl = targetUrl;
 
-        WXMediaMessage msg = new WXMediaMessage(webpage);
-        msg.title = "网页标题";
-        msg.description = "网页描述";
-        Bitmap thumb = BitmapFactory.decodeResource(mActivity.getResources(), R.mipmap.ic_launcher);
-        msg.thumbData = bmpToByteArray(thumb, true);
+                WXMediaMessage msg = new WXMediaMessage(webpage);
+                msg.title = title;
+                msg.description = summary;
+                if (thumb == null){
+                    thumb = BitmapFactory.decodeResource(mActivity.getResources(), R.mipmap.ic_launcher);
+                }
+                thumb = Bitmap.createScaledBitmap(thumb, 100, 100, true);
+                msg.thumbData = bmpToByteArray(thumb, true);
 
-        SendMessageToWX.Req req = new SendMessageToWX.Req();
-        req.transaction = buildTransaction("webpage");
-        req.message = msg;
-        req.scene = isToPX ? SendMessageToWX.Req.WXSceneTimeline : SendMessageToWX.Req.WXSceneSession;
+                SendMessageToWX.Req req = new SendMessageToWX.Req();
+                req.transaction = buildTransaction("webpage");
+                req.message = msg;
+                req.scene = isToPX ? SendMessageToWX.Req.WXSceneTimeline : SendMessageToWX.Req.WXSceneSession;
 
-        api.sendReq(req);
+                api.sendReq(req);
+            }
+        });
     }
 
     /**
@@ -132,17 +165,17 @@ public class SharePop {
     {
         final Bundle bundle = new Bundle();
         //这条分享消息被好友点击后的跳转URL。
-        bundle.putString("targetUrl", "http://connect.qq.com/");
+        bundle.putString("targetUrl", this.targetUrl);
         //分享的标题。注：PARAM_TITLE、PARAM_IMAGE_URL、PARAM_SUMMARY不能全为空，最少必须有一个是有值的。
-        bundle.putString("title", "我在测试");
+        bundle.putString("title", this.title);
         //分享的图片URL
-        bundle.putString("imageUrl", "http://img3.cache.netease.com/photo/0005/2013-03-07/8PBKS8G400BV0005.jpg");
+        bundle.putString("imageUrl", this.imageUrl);
         //分享的消息摘要，最长50个字
-        bundle.putString("summary", "测试");
+        bundle.putString("summary", this.summary);
         //手Q客户端顶部，替换“返回”按钮文字，如果为空，用返回代替
-        bundle.putString("appName", "??我在测试");
+        bundle.putString("appName", mActivity.getResources().getString(R.string.app_name));
         //标识该消息的来源应用，值为应用名称+AppId。
-        bundle.putString("appSource", "365橙融网" + QQ_APP_ID);
+        bundle.putString("appSource", mActivity.getResources().getString(R.string.app_name) + QQ_APP_ID);
 
         ThreadManager.getMainHandler().post(new Runnable() {
             @Override
@@ -176,11 +209,11 @@ public class SharePop {
     private void shareToQQZone(){
         final Bundle params = new Bundle();
         params.putInt(QzoneShare.SHARE_TO_QZONE_KEY_TYPE, QzoneShare.SHARE_TO_QZONE_TYPE_IMAGE_TEXT);
-        params.putString(QzoneShare.SHARE_TO_QQ_TITLE, "这不是测试");
-        params.putString(QzoneShare.SHARE_TO_QQ_SUMMARY, "测试");
-        params.putString(QzoneShare.SHARE_TO_QQ_TARGET_URL, "http://www.baidu.com");
+        params.putString(QzoneShare.SHARE_TO_QQ_TITLE, this.title);
+        params.putString(QzoneShare.SHARE_TO_QQ_SUMMARY, this.summary);
+        params.putString(QzoneShare.SHARE_TO_QQ_TARGET_URL, this.targetUrl);
         ArrayList<String> imageList = new ArrayList<>();
-        imageList.add("http://img3.cache.netease.com/photo/0005/2013-03-07/8PBKS8G400BV0005.jpg");
+        imageList.add(this.imageUrl);
         params.putStringArrayList(QzoneShare.SHARE_TO_QQ_IMAGE_URL, imageList);
 
         ThreadManager.getMainHandler().post(new Runnable() {
@@ -228,4 +261,5 @@ public class SharePop {
 
         return result;
     }
+
 }
