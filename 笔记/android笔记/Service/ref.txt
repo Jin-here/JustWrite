@@ -1,0 +1,5 @@
+参考网址：
+http://blog.csdn.net/guolin_blog/article/details/11952435
+
+Android Studio创建AIDL文件：
+直接包上右键就有创建AIDL文件选项，和创建包一样
