@@ -1,6 +1,10 @@
 # workspace
-the location for mature project or demo
-    成熟的项目或者Demo的存放位置
-    目录介绍：
-    as_workspace:存放一些功能模块代码
-    笔记:存放各种学习笔记
+##Preface
+It will become bigger and stronger
+##What I will find here?
+1.lots of note of android and something other note you may dont care;<br>
+2.something demo project of the note or the individual project;
+##Where I can find what i need?
+1.open the "笔记" dir,then...you know it!<br>
+2.the demo project of the note or the individual project are in "as_workspace" dir.
+##Hope you enjoy it!
