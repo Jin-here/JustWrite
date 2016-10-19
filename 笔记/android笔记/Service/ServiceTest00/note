@@ -1,0 +1,8 @@
+Service
+1.onCreate()方法只会在Service第一次被创建的时候调用;
+2.onStartCommand()方法会在每次调用startService()时调用;
+3.如果既点击了startService，又点击了bindService，这是既要点击stopService，又要unbindService，才能
+销毁Service（一个Service必须要在既没有和任何Activity关联又处于停止状态的时候才会被销毁）;
+
+RemoteService
+1.创建aidl文件后，build->rebuild project即可;
