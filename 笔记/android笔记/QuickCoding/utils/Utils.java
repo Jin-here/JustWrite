@@ -46,6 +46,17 @@ import java.util.regex.Pattern;
  * Created by caojin on 2016/4/29.
  */
 public class Utils {
+		private static Toast toast;
+
+    public synchronized static void showToast(Context context, String msg){
+        if (toast == null){
+            toast = Toast.makeText(context, msg, Toast.LENGTH_SHORT);
+        }else {
+            toast.setText(msg);
+        }
+        toast.show();
+    }
+
     /***************************格式判断************************************/
     /**
      * 是否为手机号

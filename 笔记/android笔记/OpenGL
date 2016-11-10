@@ -1,0 +1,25 @@
+1.Checking OpenGL ES Version
+软件支持：官方参考:OpenGL ES 3.0-This API specification is supported by Android 4.3 (API level 18) and higher.
+硬件支持：运行时判断
+2.使用方式
+Both framework API and NDK
+3.重要类
+GLSurfaceView and GLSurfaceView.Render
+GLSurfaceView:
+    This class is a View where you can draw and manipulate objects using OpenGL API calls and is similar in
+    function to a SurfaceView. You can use this class by creating an instance of GLSurfaceView and adding
+    your Renderer to it. However, if you want to capture touch screen events, you should extend the
+    GLSurfaceView class to implement the touch listeners
+
+
+
+
+4.使用步骤
+4.1声明OpenGL Requirements
+#OpenGL Es version requirements:
+    $code$:
+    <!-- Tell the system this app requires OpenGL ES 3.0. -->
+    <uses-feature android:glEsVersion="0x00030000" android:required="true" />
+
+#Texture compression requirements
+    If your application uses texture compression formats, you must declare the formats your application supports in your manifest file using <supports-gl-texture>
