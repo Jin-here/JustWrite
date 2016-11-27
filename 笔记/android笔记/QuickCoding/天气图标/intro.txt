@@ -1,0 +1,7 @@
+使用说明：
+1.weather.ttf放入assets;
+2.weather.xml放入values;
+3.WeatherIconView使用和TextView一样（天气图标就是一种文字）
+	设置天气图标就是setText，具体图标在weather.xml中，天气图标后面可以继续添加文字;
+	设置天气图标颜色就是setTextColor;
+	设置天气图标大小就是setTextSize;
