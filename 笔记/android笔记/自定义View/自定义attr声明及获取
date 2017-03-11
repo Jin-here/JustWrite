@@ -30,9 +30,12 @@
 2.7.string
 属性定义：<attr name="apiKey" format="string" />
 属性使用：android:apiKey="0jOkQ80oD1JL9C6HAja99uGXCRiS2CGjKO_bc_g"
-2.8.fraction
+2.8.float
 属性定义：<attr name="fromDegrees" format="float" />
 属性使用：android:fromDegrees="0"
+2.9.fraction
+属性定义：<attr name="fromDegrees" format="fraction" />
+属性使用：android:fromDegrees="50%"
 2.9.enum
 属性定义：<attr name="orientation">
              <enum name="horizontal" value="0" />
