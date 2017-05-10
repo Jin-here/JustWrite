@@ -1,47 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    dataBinding {
-        enabled = true
-    }
-    lintOptions {
-        checkReleaseBuilds false
-        // Or, if you prefer, you can continue to check for errors in release builds,
-        // but continue the build even when errors are found:
-        abortOnError false
-    }
-    dexOptions {
-        javaMaxHeapSize "2g"
-    }
-    signingConfigs {
-        def appKeyAlias = System.getenv("KEY_ALIAS")
-        def appKeyPassword = System.getenv("KEY_PASSWORD")
-        def appStoreFile = System.getenv("STORE_FILE")
-        def appStorePassword = System.getenv("STORE_PASSWORD")
-        if (!appKeyAlias || !appKeyPassword || !appStoreFile || !appStorePassword) {
-            appKeyAlias = "hawkeye"
-            appKeyPassword = "airdwing"
-            appStoreFile = "airDwing.keystore"
-            appStorePassword = "airdwing"
-        }
-        keystore_default {
-            keyAlias appKeyAlias
-            keyPassword appKeyPassword
-            storeFile file(appStoreFile)
-            storePassword appStorePassword
-        }
-    }
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
-
     defaultConfig {
-        applicationId "com.airdwing.hawkeye"
-        minSdkVersion 21
-        targetSdkVersion 22
-        versionCode 2
-        versionName "1.1.0"
-
-        multiDexEnabled true
         ndk {
             abiFilters "armeabi-v7a"
             stl = "stlport_static"
@@ -49,59 +9,4 @@ android {
             ldLibs "log"
         }
     }
-    buildTypes {
-        release {
-            shrinkResources true
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.keystore_default
-        }
-        debug {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.keystore_default
-        }
-    }
-    sourceSets {
-        main {
-            jniLibs.srcDir 'libs'
-        }
-    }
-}
-
-dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    //testCompile 'org.robolectric:robolectric:3.1.4'
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.android.support:recyclerview-v7:25.1.0'
-    compile 'com.android.support:design:25.1.0'
-    // Butterknife
-    compile 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-    // DJI SDK
-    compile project(':dJISDKLIB')
-    // MQtt
-    compile 'org.fusesource.mqtt-client:mqtt-client:1.12'
-    // 高德地图
-    compile files('libs/AMap3DMap_4.1.3_AMapSearch_3.6.1_AMapLocation_3.2.1_20161228.jar')
-    // 二维码
-    compile 'com.google.zxing:core:3.2.1'
-    compile 'cn.bingoogolapple:bga-qrcodecore:1.1.4@aar'
-    compile 'cn.bingoogolapple:bga-zxing:1.1.4@aar'
-    // EventBus
-    compile 'org.greenrobot:eventbus:3.0.0'
-    // ProtoBuf
-    compile files('libs/protobuf-java-3.0.0.jar')
-    // retrofit
-    compile 'com.squareup.retrofit2:retrofit:2.2.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
-    // picasso
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    // leakcanary 测试推流时断开（除非为了测试推流过程中是否内存泄露），因为会影响推流效率
-    // 需要打开，请解开App中内存相关代码注释
-    /*debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'*/
 }
