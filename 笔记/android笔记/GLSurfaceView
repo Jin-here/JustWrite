@@ -1,4 +1,0 @@
-1.简介
-An implementation of SurfaceView that uses the dedicated(专业的) surface for displaying OpenGL rendering.
-2.特点
-#Manage a surface, which is a special pei
