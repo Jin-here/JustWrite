@@ -19,10 +19,8 @@
 - 测试代码提交前应恢复原状
 - 当进行重构时，应等重构完，其他开发者才能后续的功能开发，否则融合时会引起大量冲突，且难以解决
 
-### 常用命令
-- stash
-- reset
-- revert
-- merge
-### 工具
-1. [git flow](https://www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/git-flow)
+### 常用操作
+参考[文档](https://github.com/VolodymyrCj/workspace/blob/master/%E8%A7%84%E8%8C%83/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C.md)
+
+### 自动化工具
+1. git flow：可以自动化的实现上述思想，参考[具体使用](https://www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/git-flow)

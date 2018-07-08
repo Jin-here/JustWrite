@@ -4,7 +4,6 @@
 
 ## 其他
 1. 避免重复用户名密码输入：git config --global credential.helper store
-2. [git flow](https://www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/git-flow)
 
 ## stash（stash以栈方式存储）
 - git stash list：列出所有stash，最上面的为时间最近的stash
@@ -39,3 +38,20 @@ git tag -a v1.2 9fceb02
 - git clean -fd: del untracked files and dirs
 - git clean -xfd: del untracked files and dirs(no matther is in .gitignore)
 - git clean clean -n(例如-nf, -nfd, -nxfd): to have a look at which files whill be del
+
+## checkout
+- 切换分支
+- 撤销对文件的改动，前提是该文件的改动还没有commit
+
+## reset
+回退到某个版本，过程```不可逆```
+
+- 回退到上一个版本
+git reset --hard HEAD^
+- 回退到前100个版本
+git reset --hard HEAD~100
+- 回退到特定提交
+git reset --hard 该提交对应hash地址
+
+## revert
+撤销某次commit所造成的```变动```，需要注意的是，那次commit仍然存在，且该操作会产生新的commit。可以理解成新的commit里面的变动和需要撤销的commit的变动是相反的
