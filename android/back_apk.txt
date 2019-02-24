@@ -1,0 +1,18 @@
+参考网址：
+http://blog.csdn.net/guolin_blog/article/details/49738023
+===============================================================
+
+dex2jar 这个工具用于将dex文件转换成jar文件 
+下载地址：http://sourceforge.net/projects/dex2jar/files/
+jd-gui 这个工具用于将jar文件转换成java代码 
+下载地址：http://jd.benow.ca/
+
+命令：d2j-dex2jar classes.dex
+
+
+================================================================
+
+apktool 这个工具用于最大幅度地还原APK文件中的9-patch图片、布局、字符串等等一系列的资源。 
+下载地址：http://ibotpeaches.github.io/Apktool/install/
+
+apktool d Demo.apk
