@@ -7,7 +7,7 @@ tv.setText(spannableString);
 setSpan()参数介绍
 - 第一个参数为具体的span，见下文“span分类”
 - 第二个参数为样式应用的开始位置
-- 第三个参数为样式应用的结束为止
+- 第三个参数为样式应用的结束位置，例如取“你好啊伙计”中的“好啊”，则开始位置为：1，结束位置为：3
 - 第四个参数为flags，见下文“Spanned flag常用值”
 
 ## Spanned flag常用值
